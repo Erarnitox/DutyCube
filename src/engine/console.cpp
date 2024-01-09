@@ -1,8 +1,9 @@
 // console.cpp: the console buffer, its display, and command line control
 
+#include "SDL_shape.h"
 #include "engine/engine.h"
 
-#define MAXCONLINES 1000
+#define MAXCONLINES 200
 struct cline { char *line; int type, outtime; };
 reversequeue<cline, MAXCONLINES> conlines;
 
@@ -112,14 +113,15 @@ ICOMMAND(clearconsole, "", (), { while(conlines.length()) delete[] conlines.pop(
 
 float drawconlines(int conskip, int confade, float conwidth, float conheight, float conoff, int filter, float y = 0, int dir = 1)
 {
-    int numl = conlines.length(), offset = min(conskip, numl);
+    int numl = conlines.length();
+    int offset = min(conskip, numl);
 
     if(confade)
     {
         if(!conskip)
         {
             numl = 0;
-            loopvrev(conlines) if(totalmillis-conlines[i].outtime < confade*1000) { numl = i+1; break; }
+            loopvrev(conlines) if(totalmillis-conlines[i].outtime < confade*100) { numl = i+1; break; }
         }
         else offset--;
     }
@@ -139,21 +141,21 @@ float drawconlines(int conskip, int confade, float conwidth, float conheight, fl
     if(dir > 0) y = conoff;
     loopi(numl)
     {
-        int idx = offset + (dir > 0 ? numl-i-1 : i);
+        int idx = offset + (dir > 0 ? i : numl-i-1);
         if(!(conlines[idx].type&filter)) continue;
         char *line = conlines[idx].line;
         float width, height;
         text_boundsf(line, width, height, conwidth);
-        if(dir <= 0) y -= height;
-        draw_text(line, conoff, y, 0xFF, 0xFF, 0xFF, 0xFF, -1, conwidth);
-        if(dir > 0) y += height;
+        if(dir >= 0) y -= height;
+        float stath = conheight*1.5f;
+        draw_text(line, conoff, (hudh/conscale)+(y-stath), 0xFF, 0xFF, 0xFF, 0xFF, -1, conwidth);
     }
     return y+conoff;
 }
 
 float renderfullconsole(float w, float h)
 {
-    float conpad = FONTH/2,
+    float conpad = FONTH*2,
           conheight = h - 2*conpad,
           conwidth = w - 2*conpad;
     drawconlines(conskip, 0, conwidth, conheight, conpad, fullconfilter);
@@ -162,7 +164,7 @@ float renderfullconsole(float w, float h)
 
 float renderconsole(float w, float h, float abovehud)
 {
-    float conpad = FONTH/2,
+    float conpad = FONTH*2,
           conheight = min(float(FONTH*consize), h - 2*conpad),
           conwidth = w - 2*conpad - game::clipconsole(w, h);
     float y = drawconlines(conskip, confade, conwidth, conheight, conpad, confilter);
