@@ -1,9 +1,20 @@
-cmake_minimum_required(VERSION 3.5)
-project(DropEngine)
+cmake_minimum_required(VERSION 3.25)
+
+#include(cmake/utility.cmake)
+
+set(CPP_STANDARD 23)
+set(CXX_STANDARD 23)
+
+set(BUILD_SHARED_LIBS OFF)
+
+project(DropEngine
+    VERSION 0.0.1
+    LANGUAGES C CXX
+)
 
 # Build options.
 option(DROP_ENGINE_BUILD_CLIENT "Build the game client" ON)
-option(DROP_ENGINE_BUILD_SERVER "Build the game server" OFF)
+option(DROP_ENGINE_BUILD_SERVER "Build the game server" ON)
 
 # Generate compile commands (compile_commands.json) for clang tooling etc.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

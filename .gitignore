@@ -2,3 +2,5 @@
 .vscode
 .cache
 build
+release
+debug

@@ -88,6 +88,7 @@ if(DROP_ENGINE_BUILD_CLIENT)
   add_executable(dropengine ${CLIENT_SOURCES})
   target_include_directories(dropengine PRIVATE ${CLIENT_INCLUDES})
   target_link_libraries(dropengine ${CLIENT_LIBRARIES})
+  # clang_format(dropengine ${CMAKE_CURRENT_LIST_DIR})
 
   # DropEngine client launcher.
   if(UNIX)
@@ -118,6 +119,7 @@ if(DROP_ENGINE_BUILD_SERVER)
   target_compile_definitions(ress_server PRIVATE -DSTANDALONE)
   target_include_directories(ress_server PRIVATE ${SERVER_INCLUDES})
   target_link_libraries(ress_server ${SERVER_LIBRARIES})
+  # clang_format(ress_server ${CMAKE_CURRENT_LIST_DIR})
 
   # Master executable.
   set(MASTER_SOURCES
@@ -138,4 +140,5 @@ if(DROP_ENGINE_BUILD_SERVER)
   target_compile_definitions(ress_master PRIVATE -DSTANDALONE)
   target_include_directories(ress_master PRIVATE ${MASTER_INCLUDES})
   target_link_libraries(ress_master ${MASTER_LIBRARIES})
+  # clang_format(ress_master ${CMAKE_CURRENT_LIST_DIR})
 endif()

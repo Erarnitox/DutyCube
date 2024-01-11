@@ -1,0 +1,440 @@
+[
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/shared/crypto.cpp.o -c /home/me/Projects/CPP/DropEngine/src/shared/crypto.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/shared/crypto.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/shared/crypto.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/shared/geom.cpp.o -c /home/me/Projects/CPP/DropEngine/src/shared/geom.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/shared/geom.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/shared/geom.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/shared/glemu.cpp.o -c /home/me/Projects/CPP/DropEngine/src/shared/glemu.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/shared/glemu.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/shared/glemu.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/shared/stream.cpp.o -c /home/me/Projects/CPP/DropEngine/src/shared/stream.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/shared/stream.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/shared/stream.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/shared/tools.cpp.o -c /home/me/Projects/CPP/DropEngine/src/shared/tools.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/shared/tools.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/shared/tools.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/shared/zip.cpp.o -c /home/me/Projects/CPP/DropEngine/src/shared/zip.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/shared/zip.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/shared/zip.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/aa.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/aa.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/aa.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/aa.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/bih.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/bih.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/bih.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/bih.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/blend.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/blend.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/blend.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/blend.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/client.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/client.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/client.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/client.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/command.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/command.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/command.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/command.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/console.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/console.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/console.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/console.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/dynlight.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/dynlight.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/dynlight.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/dynlight.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/grass.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/grass.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/grass.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/grass.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/light.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/light.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/light.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/light.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/main.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/main.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/main.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/main.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/material.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/material.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/material.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/material.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/menus.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/menus.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/menus.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/menus.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/movie.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/movie.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/movie.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/movie.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/normal.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/normal.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/normal.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/normal.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/octa.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/octa.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/octa.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/octa.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/octaedit.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/octaedit.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/octaedit.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/octaedit.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/octarender.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/octarender.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/octarender.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/octarender.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/physics.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/physics.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/physics.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/physics.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/pvs.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/pvs.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/pvs.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/pvs.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/rendergl.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/rendergl.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/rendergl.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/rendergl.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/renderlights.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/renderlights.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/renderlights.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/renderlights.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/rendermodel.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/rendermodel.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/rendermodel.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/rendermodel.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/renderparticles.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/renderparticles.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/renderparticles.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/renderparticles.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/rendersky.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/rendersky.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/rendersky.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/rendersky.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/rendertext.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/rendertext.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/rendertext.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/rendertext.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/renderva.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/renderva.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/renderva.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/renderva.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/server.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/server.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/server.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/server.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/serverbrowser.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/serverbrowser.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/serverbrowser.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/serverbrowser.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/shader.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/shader.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/shader.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/shader.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/sound.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/sound.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/sound.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/sound.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/stain.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/stain.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/stain.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/stain.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/texture.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/texture.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/texture.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/texture.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/ui.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/ui.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/ui.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/ui.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/water.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/water.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/water.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/water.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/world.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/world.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/world.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/world.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/engine/worldio.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/worldio.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/worldio.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/engine/worldio.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/game/ai.cpp.o -c /home/me/Projects/CPP/DropEngine/src/game/ai.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/game/ai.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/game/ai.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/game/client.cpp.o -c /home/me/Projects/CPP/DropEngine/src/game/client.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/game/client.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/game/client.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/game/entities.cpp.o -c /home/me/Projects/CPP/DropEngine/src/game/entities.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/game/entities.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/game/entities.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/game/game.cpp.o -c /home/me/Projects/CPP/DropEngine/src/game/game.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/game/game.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/game/game.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/game/render.cpp.o -c /home/me/Projects/CPP/DropEngine/src/game/render.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/game/render.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/game/render.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/game/scoreboard.cpp.o -c /home/me/Projects/CPP/DropEngine/src/game/scoreboard.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/game/scoreboard.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/game/scoreboard.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/game/server.cpp.o -c /home/me/Projects/CPP/DropEngine/src/game/server.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/game/server.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/game/server.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/game/waypoint.cpp.o -c /home/me/Projects/CPP/DropEngine/src/game/waypoint.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/game/waypoint.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/game/waypoint.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2  -Wno-missing-exception-spec -g -o src/CMakeFiles/dropengine.dir/game/weapon.cpp.o -c /home/me/Projects/CPP/DropEngine/src/game/weapon.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/game/weapon.cpp",
+  "output": "src/CMakeFiles/dropengine.dir/game/weapon.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -DSTANDALONE -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include  -Wno-missing-exception-spec -g -o src/CMakeFiles/ress_server.dir/shared/crypto.cpp.o -c /home/me/Projects/CPP/DropEngine/src/shared/crypto.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/shared/crypto.cpp",
+  "output": "src/CMakeFiles/ress_server.dir/shared/crypto.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -DSTANDALONE -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include  -Wno-missing-exception-spec -g -o src/CMakeFiles/ress_server.dir/shared/stream.cpp.o -c /home/me/Projects/CPP/DropEngine/src/shared/stream.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/shared/stream.cpp",
+  "output": "src/CMakeFiles/ress_server.dir/shared/stream.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -DSTANDALONE -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include  -Wno-missing-exception-spec -g -o src/CMakeFiles/ress_server.dir/shared/tools.cpp.o -c /home/me/Projects/CPP/DropEngine/src/shared/tools.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/shared/tools.cpp",
+  "output": "src/CMakeFiles/ress_server.dir/shared/tools.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -DSTANDALONE -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include  -Wno-missing-exception-spec -g -o src/CMakeFiles/ress_server.dir/engine/command.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/command.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/command.cpp",
+  "output": "src/CMakeFiles/ress_server.dir/engine/command.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -DSTANDALONE -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include  -Wno-missing-exception-spec -g -o src/CMakeFiles/ress_server.dir/engine/server.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/server.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/server.cpp",
+  "output": "src/CMakeFiles/ress_server.dir/engine/server.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -DSTANDALONE -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include  -Wno-missing-exception-spec -g -o src/CMakeFiles/ress_server.dir/engine/worldio.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/worldio.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/worldio.cpp",
+  "output": "src/CMakeFiles/ress_server.dir/engine/worldio.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -DSTANDALONE -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include  -Wno-missing-exception-spec -g -o src/CMakeFiles/ress_server.dir/game/entities.cpp.o -c /home/me/Projects/CPP/DropEngine/src/game/entities.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/game/entities.cpp",
+  "output": "src/CMakeFiles/ress_server.dir/game/entities.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -DSTANDALONE -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include  -Wno-missing-exception-spec -g -o src/CMakeFiles/ress_server.dir/game/server.cpp.o -c /home/me/Projects/CPP/DropEngine/src/game/server.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/game/server.cpp",
+  "output": "src/CMakeFiles/ress_server.dir/game/server.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -DSTANDALONE -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include  -Wno-missing-exception-spec -g -o src/CMakeFiles/ress_master.dir/shared/crypto.cpp.o -c /home/me/Projects/CPP/DropEngine/src/shared/crypto.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/shared/crypto.cpp",
+  "output": "src/CMakeFiles/ress_master.dir/shared/crypto.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -DSTANDALONE -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include  -Wno-missing-exception-spec -g -o src/CMakeFiles/ress_master.dir/shared/stream.cpp.o -c /home/me/Projects/CPP/DropEngine/src/shared/stream.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/shared/stream.cpp",
+  "output": "src/CMakeFiles/ress_master.dir/shared/stream.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -DSTANDALONE -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include  -Wno-missing-exception-spec -g -o src/CMakeFiles/ress_master.dir/shared/tools.cpp.o -c /home/me/Projects/CPP/DropEngine/src/shared/tools.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/shared/tools.cpp",
+  "output": "src/CMakeFiles/ress_master.dir/shared/tools.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -DSTANDALONE -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include  -Wno-missing-exception-spec -g -o src/CMakeFiles/ress_master.dir/engine/command.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/command.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/command.cpp",
+  "output": "src/CMakeFiles/ress_master.dir/engine/command.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/clang++ -DSTANDALONE -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include  -Wno-missing-exception-spec -g -o src/CMakeFiles/ress_master.dir/engine/master.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/master.cpp",
+  "file": "/home/me/Projects/CPP/DropEngine/src/engine/master.cpp",
+  "output": "src/CMakeFiles/ress_master.dir/engine/master.cpp.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/cc -DHAS_FCNTL=1 -DHAS_GETADDRINFO=1 -DHAS_GETHOSTBYADDR_R=1 -DHAS_GETHOSTBYNAME_R=1 -DHAS_GETNAMEINFO=1 -DHAS_INET_NTOP=1 -DHAS_INET_PTON=1 -DHAS_MSGHDR_FLAGS=1 -DHAS_POLL=1 -DHAS_SOCKLEN_T=1 -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -g   -Wno-error -o src/third_party/CMakeFiles/enet.dir/enet/callbacks.c.o -c /home/me/Projects/CPP/DropEngine/src/third_party/enet/callbacks.c",
+  "file": "/home/me/Projects/CPP/DropEngine/src/third_party/enet/callbacks.c",
+  "output": "src/third_party/CMakeFiles/enet.dir/enet/callbacks.c.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/cc -DHAS_FCNTL=1 -DHAS_GETADDRINFO=1 -DHAS_GETHOSTBYADDR_R=1 -DHAS_GETHOSTBYNAME_R=1 -DHAS_GETNAMEINFO=1 -DHAS_INET_NTOP=1 -DHAS_INET_PTON=1 -DHAS_MSGHDR_FLAGS=1 -DHAS_POLL=1 -DHAS_SOCKLEN_T=1 -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -g   -Wno-error -o src/third_party/CMakeFiles/enet.dir/enet/compress.c.o -c /home/me/Projects/CPP/DropEngine/src/third_party/enet/compress.c",
+  "file": "/home/me/Projects/CPP/DropEngine/src/third_party/enet/compress.c",
+  "output": "src/third_party/CMakeFiles/enet.dir/enet/compress.c.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/cc -DHAS_FCNTL=1 -DHAS_GETADDRINFO=1 -DHAS_GETHOSTBYADDR_R=1 -DHAS_GETHOSTBYNAME_R=1 -DHAS_GETNAMEINFO=1 -DHAS_INET_NTOP=1 -DHAS_INET_PTON=1 -DHAS_MSGHDR_FLAGS=1 -DHAS_POLL=1 -DHAS_SOCKLEN_T=1 -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -g   -Wno-error -o src/third_party/CMakeFiles/enet.dir/enet/host.c.o -c /home/me/Projects/CPP/DropEngine/src/third_party/enet/host.c",
+  "file": "/home/me/Projects/CPP/DropEngine/src/third_party/enet/host.c",
+  "output": "src/third_party/CMakeFiles/enet.dir/enet/host.c.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/cc -DHAS_FCNTL=1 -DHAS_GETADDRINFO=1 -DHAS_GETHOSTBYADDR_R=1 -DHAS_GETHOSTBYNAME_R=1 -DHAS_GETNAMEINFO=1 -DHAS_INET_NTOP=1 -DHAS_INET_PTON=1 -DHAS_MSGHDR_FLAGS=1 -DHAS_POLL=1 -DHAS_SOCKLEN_T=1 -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -g   -Wno-error -o src/third_party/CMakeFiles/enet.dir/enet/list.c.o -c /home/me/Projects/CPP/DropEngine/src/third_party/enet/list.c",
+  "file": "/home/me/Projects/CPP/DropEngine/src/third_party/enet/list.c",
+  "output": "src/third_party/CMakeFiles/enet.dir/enet/list.c.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/cc -DHAS_FCNTL=1 -DHAS_GETADDRINFO=1 -DHAS_GETHOSTBYADDR_R=1 -DHAS_GETHOSTBYNAME_R=1 -DHAS_GETNAMEINFO=1 -DHAS_INET_NTOP=1 -DHAS_INET_PTON=1 -DHAS_MSGHDR_FLAGS=1 -DHAS_POLL=1 -DHAS_SOCKLEN_T=1 -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -g   -Wno-error -o src/third_party/CMakeFiles/enet.dir/enet/packet.c.o -c /home/me/Projects/CPP/DropEngine/src/third_party/enet/packet.c",
+  "file": "/home/me/Projects/CPP/DropEngine/src/third_party/enet/packet.c",
+  "output": "src/third_party/CMakeFiles/enet.dir/enet/packet.c.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/cc -DHAS_FCNTL=1 -DHAS_GETADDRINFO=1 -DHAS_GETHOSTBYADDR_R=1 -DHAS_GETHOSTBYNAME_R=1 -DHAS_GETNAMEINFO=1 -DHAS_INET_NTOP=1 -DHAS_INET_PTON=1 -DHAS_MSGHDR_FLAGS=1 -DHAS_POLL=1 -DHAS_SOCKLEN_T=1 -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -g   -Wno-error -o src/third_party/CMakeFiles/enet.dir/enet/peer.c.o -c /home/me/Projects/CPP/DropEngine/src/third_party/enet/peer.c",
+  "file": "/home/me/Projects/CPP/DropEngine/src/third_party/enet/peer.c",
+  "output": "src/third_party/CMakeFiles/enet.dir/enet/peer.c.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/cc -DHAS_FCNTL=1 -DHAS_GETADDRINFO=1 -DHAS_GETHOSTBYADDR_R=1 -DHAS_GETHOSTBYNAME_R=1 -DHAS_GETNAMEINFO=1 -DHAS_INET_NTOP=1 -DHAS_INET_PTON=1 -DHAS_MSGHDR_FLAGS=1 -DHAS_POLL=1 -DHAS_SOCKLEN_T=1 -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -g   -Wno-error -o src/third_party/CMakeFiles/enet.dir/enet/protocol.c.o -c /home/me/Projects/CPP/DropEngine/src/third_party/enet/protocol.c",
+  "file": "/home/me/Projects/CPP/DropEngine/src/third_party/enet/protocol.c",
+  "output": "src/third_party/CMakeFiles/enet.dir/enet/protocol.c.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/cc -DHAS_FCNTL=1 -DHAS_GETADDRINFO=1 -DHAS_GETHOSTBYADDR_R=1 -DHAS_GETHOSTBYNAME_R=1 -DHAS_GETNAMEINFO=1 -DHAS_INET_NTOP=1 -DHAS_INET_PTON=1 -DHAS_MSGHDR_FLAGS=1 -DHAS_POLL=1 -DHAS_SOCKLEN_T=1 -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -g   -Wno-error -o src/third_party/CMakeFiles/enet.dir/enet/unix.c.o -c /home/me/Projects/CPP/DropEngine/src/third_party/enet/unix.c",
+  "file": "/home/me/Projects/CPP/DropEngine/src/third_party/enet/unix.c",
+  "output": "src/third_party/CMakeFiles/enet.dir/enet/unix.c.o"
+},
+{
+  "directory": "/home/me/Projects/CPP/DropEngine/debug",
+  "command": "/usr/bin/cc -DHAS_FCNTL=1 -DHAS_GETADDRINFO=1 -DHAS_GETHOSTBYADDR_R=1 -DHAS_GETHOSTBYNAME_R=1 -DHAS_GETNAMEINFO=1 -DHAS_INET_NTOP=1 -DHAS_INET_PTON=1 -DHAS_MSGHDR_FLAGS=1 -DHAS_POLL=1 -DHAS_SOCKLEN_T=1 -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -g   -Wno-error -o src/third_party/CMakeFiles/enet.dir/enet/win32.c.o -c /home/me/Projects/CPP/DropEngine/src/third_party/enet/win32.c",
+  "file": "/home/me/Projects/CPP/DropEngine/src/third_party/enet/win32.c",
+  "output": "src/third_party/CMakeFiles/enet.dir/enet/win32.c.o"
+}
+]
