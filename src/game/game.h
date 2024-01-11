@@ -52,9 +52,9 @@ enum
 };
 
 // network quantization scale
-#define DMF 16.0f                // for world locations
+#define DMF 16.0f               // for world locations
 #define DNF 100.0f              // for normalized vectors
-#define DVELF 1.0f              // for playerspeed based velocity vectors
+#define DVELF 0.5f              // for playerspeed based velocity vectors
 
 enum                            // static entity types
 {
@@ -309,7 +309,7 @@ struct gamestate
     int ammo[NUMGUNS];
     int aitype, skill;
 
-    gamestate() : maxhealth(1), aitype(AI_NONE), skill(0) {}
+    gamestate() : maxhealth(5000), aitype(AI_NONE), skill(0) {}
 
     bool canpickup(int type)
     {
@@ -361,7 +361,8 @@ struct gamestate
 };
 
 #define MAXTEAMS 2
-static const char * const teamnames[1+MAXTEAMS] = { "", "azul", "rojo" };
+static const char * const weapon_names[5] = { "Sniper", "Fist", "Plasma", "Plasma", "Plasma"};
+static const char * const teamnames[1+MAXTEAMS] = { "", "Blue", "Red" };
 static const char * const teamtextcode[1+MAXTEAMS] = { "\f0", "\f1", "\f3" };
 static const int teamtextcolor[1+MAXTEAMS] = { 0x1EC850, 0x6496FF, 0xFF4B19 };
 static const int teamscoreboardcolor[1+MAXTEAMS] = { 0, 0x3030C0, 0xC03030 };
@@ -432,7 +433,7 @@ struct gameent : dynent, gamestate
     {
         frags = flags = deaths = 0;
         totaldamage = totalshots = 0;
-        maxhealth = 1;
+        maxhealth = 5000;
         lifesequence = -1;
         respawned = suicided = -2;
     }

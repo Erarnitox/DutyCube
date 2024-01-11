@@ -1,4 +1,5 @@
 #include "game/game.h"
+#include <cstdio>
 #include "engine/engine.h"
 
 namespace game
@@ -6,6 +7,12 @@ namespace game
     bool intermission = false;
     int maptime = 0, maprealtime = 0, maplimit = -1;
     int lasthit = 0, lastspawnattempt = 0;
+    int killtime = 0;
+    int points = 0;
+    int points_total = 0;
+    const int showtime = 2000;
+    char point_text[8]{"\f20000"};
+    float scale;
 
     gameent *player1 = NULL;         // our client
     vector<gameent *> players;       // other clients
@@ -428,16 +435,17 @@ namespace game
                 strncpy(aColor, "\f0", 3);
             }
 
-            const char weapon_names[][10]{"Weapon1", "weapon2", "weapon3", "weapon4"};
             const char* weapon = weapon_names[actor->lastattack];
             conoutf(CON_GAMEINFO, "%s%s \f7[%s] %s%s", aColor, aname, weapon, dColor, dname);
         }
 
         // draw the points you got
         if(actor == player1 && d != player1) {
-            pushhudscale(2);
-            int points = 100;
-            //draw_textf("%d", (HICON_X + 2*HICON_STEP + HICON_SIZE + HICON_SPACE)/2, 0, points);
+            killtime = lastmillis;
+            points += 50;
+            points_total += 50;
+            sprintf(point_text, "\f2+%d", points);
+            scale = 2;
         }
 
         deathstate(d);
@@ -448,7 +456,8 @@ namespace game
     {
         if(secs > 0)
         {
-            maplimit = lastmillis + secs*1000;
+            //TODO: disabled for testing
+            //maplimit = lastmillis + secs*1000;
         }
         else
         {
@@ -716,30 +725,23 @@ namespace game
         }
     }
 
-    void drawhudicons(gameent *d)
-    {
-#if 0
+    void drawhudicons(gameent *d) {
         pushhudscale(1.5);
 
-        draw_textf("%d", (HICON_X + HICON_SIZE + HICON_SPACE)/2, 0, d->state==CS_DEAD ? 0 : d->health);
-        if(d->state!=CS_DEAD)
-        {
-            draw_textf("%d", (HICON_X + 2*HICON_STEP + HICON_SIZE + HICON_SPACE)/2, 0, d->ammo[d->gunselect]);
+        if(d->state!=CS_DEAD) {
+           draw_textf("%d", HICON_X/1.5, HICON_Y/1.5, points_total);
         }
 
         pophudmatrix();
         resethudshader();
 
-        drawicon(0, HICON_X, HICON_Y);
-        if(d->state!=CS_DEAD)
-        {
-            drawicon(0+d->gunselect, HICON_X + 2*HICON_STEP, HICON_Y);
+        //drawicon(0, HICON_X, HICON_Y);
+        if(d->state!=CS_DEAD) {
+           // drawicon(d->gunselect, HICON_X + 2*HICON_STEP, HICON_Y);
         }
-#endif
     }
 
-    void gameplayhud(int w, int h)
-    {
+    void gameplayhud(int w, int h) {
         pushhudscale(h/1800.0f);
 
         if(player1->state==CS_SPECTATOR)
@@ -768,7 +770,29 @@ namespace game
         gameent *d = hudplayer();
         if(d->state!=CS_EDITING)
         {
-            if(d->state!=CS_SPECTATOR) drawhudicons(d);
+            if(d->state!=CS_SPECTATOR){
+                int alpha = 255 - max(0, lastmillis-killtime-showtime);
+                
+                if(alpha > 1) {
+                    if(scale > 1.5){
+                        int delta_time = lastmillis-killtime;
+                        scale -= delta_time / 1000.0f;
+                    }
+                    pushhudscale(scale);
+
+                    float fw, fh;
+                    text_boundsf(point_text, fw, fh);
+                    draw_text(point_text, (((w*(1800.f/h))-fw)/2)/scale, (((h*(1650.f/w))-fh)/scale)/2, 0xFF, 0xFF, 0XFF, alpha);
+
+                    // reset the hud scale
+                    pophudmatrix();
+                } else {
+                    killtime = 0;
+                    points = 0;
+                }
+
+                drawhudicons(d);
+            }
             if(cmode) cmode->drawhud(d, w, h);
         }
 

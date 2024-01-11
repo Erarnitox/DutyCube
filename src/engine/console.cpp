@@ -121,7 +121,7 @@ float drawconlines(int conskip, int confade, float conwidth, float conheight, fl
         if(!conskip)
         {
             numl = 0;
-            loopvrev(conlines) if(totalmillis-conlines[i].outtime < confade*100) { numl = i+1; break; }
+            loopvrev(conlines) if(totalmillis-conlines[i].outtime < confade*300) { numl = i+1; break; }
         }
         else offset--;
     }
