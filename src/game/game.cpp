@@ -390,24 +390,23 @@ namespace game
 
     VARP(teamcolorfrags, 0, 1, 1);
 
-    void killed(gameent *d, gameent *actor)
-    {
-        if(d->state==CS_EDITING)
-        {
+    void killed(gameent* d, gameent* actor) {
+        if(d->state==CS_EDITING) {
             d->editstate = CS_DEAD;
             d->deaths++;
             if(d!=player1) d->resetinterp();
             return;
+        } else if((d->state!=CS_ALIVE && d->state != CS_LAGGED && d->state != CS_SPAWNING) || intermission) {
+            return;
         }
-        else if((d->state!=CS_ALIVE && d->state != CS_LAGGED && d->state != CS_SPAWNING) || intermission) return;
 
         gameent *h = followingplayer();
-        if(!h) h = player1;
-        int contype = d==h || actor==h ? CON_FRAG_SELF : CON_FRAG_OTHER;
-        const char *dname = "", *aname = "";
-
-        dname = d->name;
-        aname = actor->name;
+        if(!h){
+            h = player1;
+        }
+        
+        const char* const dname = d->name;
+        const char* const aname = actor->name;
 
         if(d==actor)
             conoutf(CON_GAMEINFO, "\f2%s suicided...", dname);
