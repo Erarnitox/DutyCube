@@ -405,29 +405,30 @@ namespace game
         if(!h) h = player1;
         int contype = d==h || actor==h ? CON_FRAG_SELF : CON_FRAG_OTHER;
         const char *dname = "", *aname = "";
-        if(m_teammode && teamcolorfrags)
-        {
-            dname = teamcolorname(d, "you");
-            aname = teamcolorname(actor, "you");
-        }
-        else
-        {
-            dname = colorname(d, NULL, "you");
-            aname = colorname(actor, NULL, "you");
-        }
+
+        dname = d->name;
+        aname = actor->name;
+
         if(d==actor)
-            conoutf(contype, "\f2%s suicided%s", dname, d==player1 ? "!" : "");
-        else if(isteam(d->team, actor->team))
-        {
-            contype |= CON_TEAMKILL;
-            if(actor==player1) conoutf(contype, "\f6%s fragged a teammate (%s)", aname, dname);
-            else if(d==player1) conoutf(contype, "\f6%s got fragged by a teammate (%s)", dname, aname);
-            else conoutf(contype, "\f2%s fragged a teammate (%s)", aname, dname);
-        }
-        else
-        {
-            if(d==player1) conoutf(contype, "\f2%s got fragged by %s", dname, aname);
-            else conoutf(contype, "\f2%s fragged %s", aname, dname);
+            conoutf(CON_GAMEINFO, "\f2%s suicided...", dname);
+        else {
+            char aColor[]{"\f3"};
+            char dColor[]{"\f3"};
+
+            if(d == player1){
+                strncpy(dColor, "\f7", 3);
+            }
+            else if(isteam(player1->team, d->team)){
+                strncpy(dColor, "\f0", 3);
+            }
+            if(actor == player1){
+                strncpy(aColor, "\f7", 3);
+            }
+            else if(isteam(player1->team, actor->team)){
+                strncpy(aColor, "\f0", 3);
+            }
+
+            conoutf(CON_GAMEINFO, "%s%s \f7[KILLED] %s%s", aColor, aname, dColor, dname);
         }
         deathstate(d);
         ai::killed(d, actor);
