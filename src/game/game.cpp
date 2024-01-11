@@ -1,4 +1,5 @@
 #include "game/game.h"
+#include "engine/engine.h"
 
 namespace game
 {
@@ -427,8 +428,18 @@ namespace game
                 strncpy(aColor, "\f0", 3);
             }
 
-            conoutf(CON_GAMEINFO, "%s%s \f7[KILLED] %s%s", aColor, aname, dColor, dname);
+            const char weapon_names[][10]{"Weapon1", "weapon2", "weapon3", "weapon4"};
+            const char* weapon = weapon_names[actor->lastattack];
+            conoutf(CON_GAMEINFO, "%s%s \f7[%s] %s%s", aColor, aname, weapon, dColor, dname);
         }
+
+        // draw the points you got
+        if(actor == player1 && d != player1) {
+            pushhudscale(2);
+            int points = 100;
+            //draw_textf("%d", (HICON_X + 2*HICON_STEP + HICON_SIZE + HICON_SPACE)/2, 0, points);
+        }
+
         deathstate(d);
         ai::killed(d, actor);
     }
@@ -708,21 +719,21 @@ namespace game
     void drawhudicons(gameent *d)
     {
 #if 0
-        pushhudscale(2);
+        pushhudscale(1.5);
 
-        draw_textf("%d", (HICON_X + HICON_SIZE + HICON_SPACE)/2, HICON_TEXTY/2, d->state==CS_DEAD ? 0 : d->health);
+        draw_textf("%d", (HICON_X + HICON_SIZE + HICON_SPACE)/2, 0, d->state==CS_DEAD ? 0 : d->health);
         if(d->state!=CS_DEAD)
         {
-            draw_textf("%d", (HICON_X + 2*HICON_STEP + HICON_SIZE + HICON_SPACE)/2, HICON_TEXTY/2, d->ammo[d->gunselect]);
+            draw_textf("%d", (HICON_X + 2*HICON_STEP + HICON_SIZE + HICON_SPACE)/2, 0, d->ammo[d->gunselect]);
         }
 
         pophudmatrix();
         resethudshader();
 
-        drawicon(HICON_HEALTH, HICON_X, HICON_Y);
+        drawicon(0, HICON_X, HICON_Y);
         if(d->state!=CS_DEAD)
         {
-            drawicon(HICON_MELEE+d->gunselect, HICON_X + 2*HICON_STEP, HICON_Y);
+            drawicon(0+d->gunselect, HICON_X + 2*HICON_STEP, HICON_Y);
         }
 #endif
     }

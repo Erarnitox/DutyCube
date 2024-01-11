@@ -1,4 +1,13 @@
 // server-side ai manager
+
+constexpr char BOT_NAMES[][12]{
+    "Eric", "Max", "Hussein", "Jonas", 
+    "David", "Daniel", "Gert", "Alfred",
+    "Kenny", "Bill", "Gil", "Moe", "Homer",
+    "Kyle", "Kayne", "Michael", "Jane",
+    "Jesse", "Kasten", "Albert", "Franz",
+    "Fritz", "Joseph"
+};
 namespace aiman
 {
     bool dorefresh = false, botbalance = true;
@@ -115,7 +124,7 @@ namespace aiman
         ci->state.skill = skill <= 0 ? rnd(50) + 51 : clamp(skill, 1, 101);
         clients.add(ci);
         ci->state.lasttimeplayed = lastmillis;
-        copystring(ci->name, "bot", MAXNAMELEN+1);
+        copystring(ci->name, BOT_NAMES[rnd(22)], MAXNAMELEN+1);
         ci->state.state = CS_DEAD;
         ci->team = team;
         ci->playermodel = rnd(128);

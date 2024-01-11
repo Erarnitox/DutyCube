@@ -380,6 +380,7 @@ struct gameent : dynent, gamestate
     int lastaction, lastattack;
     int attacking;
     int lasttaunt;
+    int lasthitpushgun;
     int lastpickup, lastpickupmillis, flagpickup;
     int frags, flags, deaths, totaldamage, totalshots;
     editinfo *edit;
@@ -409,6 +410,7 @@ struct gameent : dynent, gamestate
         vec push(dir);
         push.mul((actor==this && attacks[atk].exprad ? EXP_SELFPUSH : 1.0f)*attacks[atk].hitpush*damage/weight);
         vel.add(push);
+        lasthitpushgun = atk;
     }
 
     void respawn()
