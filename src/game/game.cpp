@@ -782,7 +782,7 @@ namespace game
 
                     float fw, fh;
                     text_boundsf(point_text, fw, fh);
-                    draw_text(point_text, (((w*(1800.f/h))-fw)/2)/scale, (((h*(1650.f/w))-fh)/scale)/2, 0xFF, 0xFF, 0XFF, alpha);
+                    draw_text(point_text, ((w/scale*(1800.f/h))-fw)/2, ((h/scale*(1650.f/w))-fh)/2, 0xFF, 0xFF, 0XFF, alpha);
 
                     // reset the hud scale
                     pophudmatrix();
