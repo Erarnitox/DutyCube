@@ -440,7 +440,7 @@ namespace game
         }
 
         // draw the points you got
-        if(actor == player1 && d != player1) {
+        if(actor == player1 && d != player1 && !isteam(player1->team, d->team)) {
             killtime = lastmillis;
             points += 50;
             points_total += 50;
