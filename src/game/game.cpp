@@ -10,7 +10,7 @@ namespace game
     int killtime = 0;
     int points = 0;
     int points_total = 0;
-    const int showtime = 2000;
+    const int showtime = 1300;
     char point_text[8]{"\f20000"};
     float scale;
 
@@ -658,12 +658,6 @@ namespace game
     const char *colorname(gameent *d, const char *name, const char * alt, const char *color)
     {
         if(!name) name = alt && d == player1 ? alt : d->name;
-        bool dup = !name[0] || duplicatename(d, name, alt) || d->aitype != AI_NONE;
-        if(dup || color[0])
-        {
-            if(dup) return tempformatstring(d->aitype == AI_NONE ? "\fs%s%s \f5(%d)\fr" : "\fs%s%s \f5[%d]\fr", color, name, d->clientnum);
-            return tempformatstring("\fs%s%s\fr", color, name);
-        }
         return name;
     }
 
@@ -726,16 +720,14 @@ namespace game
     }
 
     void drawhudicons(gameent *d) {
-        pushhudscale(1.5);
 
         if(d->state!=CS_DEAD) {
-           draw_textf("%d", HICON_X/1.5, HICON_Y/1.5, points_total);
+            resethudshader();
+            drawicon(d->team, HICON_X, HICON_Y, 120);
+            draw_textf("Score:", HICON_X+HICON_SPACE+120, HICON_Y);
+            draw_textf("%d", HICON_X+HICON_SPACE+120, HICON_Y+HICON_SIZE/2, points_total);
         }
 
-        pophudmatrix();
-        resethudshader();
-
-        //drawicon(0, HICON_X, HICON_Y);
         if(d->state!=CS_DEAD) {
            // drawicon(d->gunselect, HICON_X + 2*HICON_STEP, HICON_Y);
         }
@@ -776,13 +768,13 @@ namespace game
                 if(alpha > 1) {
                     if(scale > 1.5){
                         int delta_time = lastmillis-killtime;
-                        scale -= delta_time / 1000.0f;
+                        scale -= delta_time / 1200.0f;
                     }
                     pushhudscale(scale);
 
                     float fw, fh;
                     text_boundsf(point_text, fw, fh);
-                    draw_text(point_text, ((w/scale*(1800.f/h))-fw)/2, ((h/scale*(1650.f/w))-fh)/2, 0xFF, 0xFF, 0XFF, alpha);
+                    draw_text(point_text, ((w/scale*(1800.f/h))-fw)/2, ((h/scale*(1650.f/w))-fh)/2+200/scale, 0xFF, 0xFF, 0XFF, alpha);
 
                     // reset the hud scale
                     pophudmatrix();
