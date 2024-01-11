@@ -304,7 +304,8 @@ static const struct guninfo { const char *name, *file, *vwep; int attacks[NUMACT
 // inherited by gameent and server clients
 struct gamestate
 {
-    int health, maxhealth;
+    int health;
+    int maxhealth;
     int gunselect, gunwait;
     int ammo[NUMGUNS];
     int aitype, skill;
@@ -325,7 +326,7 @@ struct gamestate
         health = maxhealth;
         gunselect = GUN_RAIL;
         gunwait = 0;
-        loopi(NUMGUNS) ammo[i] = 0;
+        loopi(NUMGUNS) ammo[i] = 1;
     }
 
     void spawnstate(int gamemode)
