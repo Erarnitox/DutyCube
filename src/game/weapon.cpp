@@ -280,10 +280,6 @@ namespace game
         newbouncer(p, to, true, 0, d, type, rnd(1000)+1000, rnd(100)+20);
     }
 
-    void gibeffect(int damage, const vec &vel, gameent *d)
-    {
-    }
-
     // Check if an entity is a player on the same team as player1.
     static bool sameteam(dynent *other)
     {
@@ -369,15 +365,7 @@ namespace game
         particle_fireball(v, 1.15f*attacks[atk].exprad, PART_PULSE_BURST, int(attacks[atk].exprad*20), 0x50CFE5, 4.0f);
         vec debrisorigin = vec(v).sub(vec(vel).mul(5));
         adddynlight(safe ? v : debrisorigin, 2*attacks[atk].exprad, vec(1.0f, 3.0f, 4.0f), 350, 40, 0, attacks[atk].exprad/2, vec(0.5f, 1.5f, 2.0f));
-#if 0
-        int numdebris = maxdebris > MINDEBRIS ? rnd(maxdebris-MINDEBRIS)+MINDEBRIS : min(maxdebris, MINDEBRIS);
-        if(numdebris)
-        {
-            vec debrisvel = vec(vel).neg();
-            loopi(numdebris)
-                spawnbouncer(debrisorigin, debrisvel, owner, BNC_DEBRIS);
-        }
-#endif
+
         if(!local) return;
         int numdyn = numdynents();
         loopi(numdyn)
@@ -704,17 +692,9 @@ namespace game
         }
     }
 
-#if 0
-    static const char * const gibnames[3] = { "gibs/gib01", "gibs/gib02", "gibs/gib03" };
-    static const char * const debrisnames[4] = { "debris/debris01", "debris/debris02", "debris/debris03", "debris/debris04" };
-#endif
-
     void preloadbouncers()
     {
-#if 0
-        loopi(sizeof(gibnames)/sizeof(gibnames[0])) preloadmodel(gibnames[i]);
-        loopi(sizeof(debrisnames)/sizeof(debrisnames[0])) preloadmodel(debrisnames[i]);
-#endif
+
     }
 
     void renderbouncers()

@@ -375,7 +375,6 @@ namespace game
         d->lastpain = lastmillis;
         if(!restore)
         {
-            gibeffect(max(-d->health, 0), d->vel, d);
             d->deaths++;
         }
         if(d==player1)
