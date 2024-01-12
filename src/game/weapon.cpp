@@ -13,12 +13,6 @@ namespace game
     };
     vector<hitmsg> hits;
 
-#if 0
-    #define MINDEBRIS 3
-    VARP(maxdebris, MINDEBRIS, 10, 100);
-    VARP(maxgibs, 0, 4, 100);
-#endif
-
     ICOMMAND(getweapon, "", (), intret(player1->gunselect));
 
     void gunselect(int gun, gameent *d)
@@ -274,10 +268,7 @@ namespace game
     {
         vec p = d->o;
         p.z += 0.6f*(d->eyeheight + d->aboveeye) - d->eyeheight;
-        if(blood) particle_splash(PART_BLOOD, max(damage/10, rnd(3)+1), 1000, p, 0x60FFFF, 2.96f);
-#if 0
-        if(thirdperson) particle_textcopy(d->abovehead(), tempformatstring("%d", damage), PART_TEXT, 2000, 0xFF4B19, 4.0f, -8);
-#endif
+        if(blood) particle_splash(PART_BLOOD, max(damage/1000, rnd(3)+1), 1000, p, 0x60FFFF, 2.96f);
     }
 
     void spawnbouncer(const vec &p, const vec &vel, gameent *d, int type)
@@ -291,11 +282,6 @@ namespace game
 
     void gibeffect(int damage, const vec &vel, gameent *d)
     {
-#if 0
-        if(!blood || !maxgibs || damage < 0) return;
-        vec from = d->abovehead();
-        loopi(rnd(maxgibs)+1) spawnbouncer(from, vel, d, BNC_GIBS);
-#endif
     }
 
     // Check if an entity is a player on the same team as player1.
@@ -412,7 +398,7 @@ namespace game
 
     void projsplash(projectile &p, const vec &v, dynent *safe)
     {
-        explode(p.local, p.owner, v, p.dir, safe, attacks[p.atk].damage, p.atk);
+        explode(p.local, p.owner, v, p.dir, safe, rnd(7)*0.2f*attacks[p.atk].damage, p.atk);
         pulsestain(p, v);
     }
 
@@ -447,7 +433,7 @@ namespace game
         projsplash(p, v, o);
         vec dir;
         projdist(o, dir, v, p.dir);
-        hit(attacks[p.atk].damage, o, p.owner, dir, p.atk, 0);
+        hit(rnd(7)*0.2f*attacks[p.atk].damage, o, p.owner, dir, p.atk, 0);
         return true;
     }
 
@@ -637,14 +623,14 @@ namespace game
                     hits[j] = NULL;
                     numhits++;
                 }
-                hitpush(numhits*attacks[atk].damage, o, d, from, to, atk, numhits);
+                hitpush(rnd(7)*0.2f*numhits*attacks[atk].damage, o, d, from, to, atk, numhits);
             }
         }
         else if((o = intersectclosest(from, to, d, margin, dist)))
         {
             shorten(from, to, dist);
             railhit(from, to, false);
-            hitpush(attacks[atk].damage, o, d, from, to, atk, 1);
+            hitpush(rnd(7)*0.2f*attacks[atk].damage, o, d, from, to, atk, 1);
         }
         else if(attacks[atk].action!=ACT_MELEE) railhit(from, to);
     }
@@ -703,7 +689,7 @@ namespace game
 
         d->gunwait = attacks[atk].attackdelay;
         if(attacks[atk].action != ACT_MELEE && d->ai) d->gunwait += int(d->gunwait*(((101-d->skill)+rnd(111-d->skill))/100.f));
-        d->totalshots += attacks[atk].damage*attacks[atk].rays;
+        d->totalshots += rnd(7)*0.2f*attacks[atk].damage*attacks[atk].rays;
     }
 
     void adddynlights()
@@ -751,15 +737,6 @@ namespace game
             const char *mdl = NULL;
             int cull = MDL_CULL_VFC|MDL_CULL_DIST|MDL_CULL_OCCLUDED;
             float fade = 1;
-            if(bnc.lifetime < 250) fade = bnc.lifetime/250.0f;
-            switch(bnc.bouncetype)
-            {
-#if 0
-                case BNC_GIBS: mdl = gibnames[bnc.variant]; break;
-                case BNC_DEBRIS: mdl = debrisnames[bnc.variant]; break;
-#endif
-                default: continue;
-            }
             rendermodel(mdl, ANIM_MAPMODEL|ANIM_LOOP, pos, yaw, pitch, 0, cull, NULL, NULL, 0, 0, fade);
         }
     }
