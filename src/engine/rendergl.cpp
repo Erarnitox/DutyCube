@@ -1322,20 +1322,44 @@ void pushhudtranslate(float tx, float ty, float sx, float sy)
     flushhudmatrix();
 }
 
+//zoomstate zoominfo;
 int vieww = -1, viewh = -1;
 float curfov, curavatarfov, fovy, aspect;
 int farplane;
 VARP(zoominvel, 0, 30, 500);
 VARP(zoomoutvel, 0, 50, 500);
-VARP(zoomfov, 10, 42, 90);
+VARP(zoomfov, 10, 35, 100);
 VARP(fov, 10, 100, 150);
 VAR(avatarzoomfov, 1, 1, 1);
 VAR(avatarfov, 10, 40, 100);
 FVAR(avatardepth, 0, 0.7f, 1);
 FVARNP(aspect, forceaspect, 0, 0, 1e3f);
+//VARF(showironsight, 0, 0, 1, zoominfo.state = (zoominfo.state & 3) | (showironsight << 2););
 
 static float zoomprogress = 0;
 VAR(zoom, -1, 0, 1);
+static int zoommillis = 0;
+
+/*
+VARF(zoom, -1, 0, 1,
+    if(zoom) zoommillis = totalmillis;
+	if(zoom) {
+		zoommillis = totalmillis;
+		zoominfo.startmillis = lastmillis;
+	}
+);
+
+void zoomstate::update() {
+	if(!zoom) { state = ZOOM_OFF | (state & USE_IRON_SIGHT); return; }
+	duration = zoom > 0 ? zoominvel : zoomoutvel;
+	if(duration > totalmillis  - zoommillis)
+	{
+		// startmillis = zoommillis;
+		state = (zoom > 0 ? ZOOM_IN: ZOOM_OUT) | (state & USE_IRON_SIGHT);
+		return;
+	}
+	state = (zoom > 0 ? ZOOM_ON: ZOOM_OFF) | (state & USE_IRON_SIGHT);
+}*/
 
 void disablezoom()
 {
@@ -2581,7 +2605,7 @@ VARP(cursorsize, 0, 15, 30);
 VARP(crosshairfx, 0, 1, 1);
 VARP(crosshaircolors, 0, 1, 1);
 
-#define MAXCROSSHAIRS 4
+#define MAXCROSSHAIRS 30
 static Texture *crosshairs[MAXCROSSHAIRS] = { NULL, NULL, NULL, NULL };
 
 void loadcrosshair(const char *name, int i)
