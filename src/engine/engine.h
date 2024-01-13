@@ -49,15 +49,14 @@ struct font
         int tex;
     };
 
-    char *name;
+    char *name{nullptr};
     vector<Texture *> texs;
     vector<charinfo> chars;
     int charoffset, defaultw, defaulth, scale;
     float bordermin, bordermax, outlinemin, outlinemax;
 
-    font() : name(NULL)
-    {
-    }
+    font()  
+    = default;
     ~font()
     {
         DELETEA(name);
@@ -74,7 +73,7 @@ extern Shader *textshader;
 extern const matrix4x3 *textmatrix;
 extern float textscale;
 
-extern font *findfont(const char *name);
+extern auto findfont(const char *name) -> font *;
 extern void reloadfonts();
 
 static inline void setfont(font *f)
@@ -93,12 +92,12 @@ extern int maxtexsize;
 extern int hwtexunits;
 extern int hwvtexunits;
 
-extern Texture *textureload(const char *name, int clamp = 0, bool mipit = true, bool msg = true);
-extern int texalign(const void *data, int w, int bpp);
-extern bool floatformat(GLenum format);
+extern auto textureload(const char *name, int clamp = 0, bool mipit = true, bool msg = true) -> Texture *;
+extern auto texalign(const void *data, int w, int bpp) -> int;
+extern auto floatformat(GLenum format) -> bool;
 extern void cleanuptexture(Texture *t);
-extern uchar *loadalphamask(Texture *t);
-extern Texture *cubemapload(const char *name, bool mipit = true, bool msg = true, bool transient = false);
+extern auto loadalphamask(Texture *t) -> uchar *;
+extern auto cubemapload(const char *name, bool mipit = true, bool msg = true, bool transient = false) -> Texture *;
 extern void drawcubemap(int size, const vec &o, float yaw, float pitch, const cubemapside &side, bool onlysky = false);
 extern void loadshaders();
 extern void setuptexparameters(int tnum,
@@ -134,17 +133,17 @@ extern void create3dtexture(int tnum,
                             bool swizzle = false);
 extern void blurtexture(int n, int bpp, int w, int h, uchar *dst, const uchar *src, int margin = 0);
 extern void blurnormals(int n, int w, int h, bvec *dst, const bvec *src, int margin = 0);
-extern GLuint setuppostfx(int w, int h, GLuint outfbo = 0);
+extern auto setuppostfx(int w, int h, GLuint outfbo = 0) -> GLuint;
 extern void cleanuppostfx(bool fullclean = false);
 extern void renderpostfx(GLuint outfbo = 0);
 extern void initenvmaps();
 extern void genenvmaps();
-extern ushort closestenvmap(const vec &o);
-extern ushort closestenvmap(int orient, const ivec &o, int size);
-extern GLuint lookupenvmap(ushort emid);
-extern GLuint lookupenvmap(Slot &slot);
-extern bool reloadtexture(Texture &tex);
-extern bool reloadtexture(const char *name);
+extern auto closestenvmap(const vec &o) -> ushort;
+extern auto closestenvmap(int orient, const ivec &o, int size) -> ushort;
+extern auto lookupenvmap(ushort emid) -> GLuint;
+extern auto lookupenvmap(Slot &slot) -> GLuint;
+extern auto reloadtexture(Texture &tex) -> bool;
+extern auto reloadtexture(const char *name) -> bool;
 extern void setuptexcompress();
 extern void clearslots();
 extern void compacteditvslots();
@@ -152,21 +151,21 @@ extern void compactmruvslots();
 extern void compactvslots(cube *c, int n = 8);
 extern void compactvslot(int &index);
 extern void compactvslot(VSlot &vs);
-extern int compactvslots(bool cull = false);
+extern auto compactvslots(bool cull = false) -> int;
 extern void reloadtextures();
 extern void cleanuptextures();
 
 // pvs
 extern void clearpvs();
-extern bool pvsoccluded(const ivec &bbmin, const ivec &bbmax);
-extern bool pvsoccludedsphere(const vec &center, float radius);
-extern bool waterpvsoccluded(int height);
+extern auto pvsoccluded(const ivec &bbmin, const ivec &bbmax) -> bool;
+extern auto pvsoccludedsphere(const vec &center, float radius) -> bool;
+extern auto waterpvsoccluded(int height) -> bool;
 extern void setviewcell(const vec &p);
 extern void savepvs(stream *f);
 extern void loadpvs(stream *f, int numpvs);
-extern int getnumviewcells();
+extern auto getnumviewcells() -> int;
 
-static inline bool pvsoccluded(const ivec &bborigin, int size)
+static inline auto pvsoccluded(const ivec &bborigin, int size) -> bool
 {
     return pvsoccluded(bborigin, ivec(bborigin).add(size));
 }
@@ -283,16 +282,16 @@ extern void cleanupgl();
 extern void drawminimap();
 extern void enablepolygonoffset(GLenum type);
 extern void disablepolygonoffset(GLenum type);
-extern bool calcspherescissor(const vec &center,
+extern auto calcspherescissor(const vec &center,
                               float size,
                               float &sx1,
                               float &sy1,
                               float &sx2,
                               float &sy2,
                               float &sz1,
-                              float &sz2);
-extern bool calcbbscissor(const ivec &bbmin, const ivec &bbmax, float &sx1, float &sy1, float &sx2, float &sy2);
-extern bool calcspotscissor(const vec &origin,
+                              float &sz2) -> bool;
+extern auto calcbbscissor(const ivec &bbmin, const ivec &bbmax, float &sx1, float &sy1, float &sx2, float &sy2) -> bool;
+extern auto calcspotscissor(const vec &origin,
                             float radius,
                             const vec &dir,
                             int spot,
@@ -303,7 +302,7 @@ extern bool calcspotscissor(const vec &origin,
                             float &sx2,
                             float &sy2,
                             float &sz1,
-                            float &sz2);
+                            float &sz2) -> bool;
 extern void screenquad();
 extern void screenquad(float sw, float sh);
 extern void screenquadflipped(float sw, float sh);
@@ -313,12 +312,12 @@ extern void screenquadoffset(float x, float y, float w, float h, float x2, float
 extern void hudquad(float x, float y, float w, float h, float tx = 0, float ty = 0, float tw = 1, float th = 1);
 extern void debugquad(float x, float y, float w, float h, float tx = 0, float ty = 0, float tw = 1, float th = 1);
 extern void recomputecamera();
-extern float calcfrustumboundsphere(float nearplane, float farplane, const vec &pos, const vec &view, vec &center);
+extern auto calcfrustumboundsphere(float nearplane, float farplane, const vec &pos, const vec &view, vec &center) -> float;
 extern void setfogcolor(const vec &v);
 extern void zerofogcolor();
 extern void resetfogcolor();
-extern float calcfogdensity(float dist);
-extern float calcfogcull();
+extern auto calcfogdensity(float dist) -> float;
+extern auto calcfogcull() -> float;
 extern void writecrosshairs(stream *f);
 extern void renderavatar();
 
@@ -329,73 +328,73 @@ namespace modelpreview
 }
 
 struct timer;
-extern timer *begintimer(const char *name, bool gpu = true);
+extern auto begintimer(const char *name, bool gpu = true) -> timer *;
 extern void endtimer(timer *t);
 
 // renderextras
 extern void render3dbox(vec &o, float tofloor, float toceil, float xradius, float yradius = 0);
 
 // octa
-extern cube *newcubes(uint face = F_EMPTY, int mat = MAT_AIR);
-extern cubeext *growcubeext(cubeext *ext, int maxverts);
+extern auto newcubes(uint face = F_EMPTY, int mat = MAT_AIR) -> cube *;
+extern auto growcubeext(cubeext *ext, int maxverts) -> cubeext *;
 extern void setcubeext(cube &c, cubeext *ext);
-extern cubeext *newcubeext(cube &c, int maxverts = 0, bool init = true);
+extern auto newcubeext(cube &c, int maxverts = 0, bool init = true) -> cubeext *;
 extern void getcubevector(cube &c, int d, int x, int y, int z, ivec &p);
 extern void setcubevector(cube &c, int d, int x, int y, int z, const ivec &p);
-extern int familysize(const cube &c);
+extern auto familysize(const cube &c) -> int;
 extern void freeocta(cube *c);
 extern void discardchildren(cube &c, bool fixtex = false, int depth = 0);
 extern void optiface(uchar *p, cube &c);
 extern void validatec(cube *c, int size = 0);
-extern bool isvalidcube(const cube &c);
+extern auto isvalidcube(const cube &c) -> bool;
 extern ivec lu;
 extern int lusize;
-extern cube &lookupcube(const ivec &to, int tsize = 0, ivec &ro = lu, int &rsize = lusize);
+extern auto lookupcube(const ivec &to, int tsize = 0, ivec &ro = lu, int &rsize = lusize) -> cube &;
 extern const cube *neighbourstack[32];
 extern int neighbourdepth;
-extern const cube &neighbourcube(const cube &c,
+extern auto neighbourcube(const cube &c,
                                  int orient,
                                  const ivec &co,
                                  int size,
                                  ivec &ro = lu,
-                                 int &rsize = lusize);
+                                 int &rsize = lusize) -> const cube &;
 extern void resetclipplanes();
-extern int getmippedtexture(const cube &p, int orient);
+extern auto getmippedtexture(const cube &p, int orient) -> int;
 extern void forcemip(cube &c, bool fixtex = true);
-extern bool subdividecube(cube &c, bool fullcheck = true, bool brighten = true);
-extern int faceconvexity(const ivec v[4]);
-extern int faceconvexity(const ivec v[4], int &vis);
-extern int faceconvexity(const vertinfo *verts, int numverts, int size);
-extern int faceconvexity(const cube &c, int orient);
+extern auto subdividecube(cube &c, bool fullcheck = true, bool brighten = true) -> bool;
+extern auto faceconvexity(const ivec v[4]) -> int;
+extern auto faceconvexity(const ivec v[4], int &vis) -> int;
+extern auto faceconvexity(const vertinfo *verts, int numverts, int size) -> int;
+extern auto faceconvexity(const cube &c, int orient) -> int;
 extern void calcvert(const cube &c, const ivec &co, int size, ivec &vert, int i, bool solid = false);
 extern void calcvert(const cube &c, const ivec &co, int size, vec &vert, int i, bool solid = false);
-extern uint faceedges(const cube &c, int orient);
-extern bool collapsedface(const cube &c, int orient);
-extern bool touchingface(const cube &c, int orient);
-extern bool flataxisface(const cube &c, int orient);
-extern bool collideface(const cube &c, int orient);
-extern int genclipplane(const cube &c, int i, vec *v, plane *clip);
+extern auto faceedges(const cube &c, int orient) -> uint;
+extern auto collapsedface(const cube &c, int orient) -> bool;
+extern auto touchingface(const cube &c, int orient) -> bool;
+extern auto flataxisface(const cube &c, int orient) -> bool;
+extern auto collideface(const cube &c, int orient) -> bool;
+extern auto genclipplane(const cube &c, int i, vec *v, plane *clip) -> int;
 extern void genclipplanes(const cube &c, const ivec &co, int size, clipplanes &p, bool collide = true);
-extern bool visibleface(const cube &c,
+extern auto visibleface(const cube &c,
                         int orient,
                         const ivec &co,
                         int size,
                         ushort mat = MAT_AIR,
                         ushort nmat = MAT_AIR,
-                        ushort matmask = MATF_VOLUME);
-extern int classifyface(const cube &c, int orient, const ivec &co, int size);
-extern int visibletris(const cube &c,
+                        ushort matmask = MATF_VOLUME) -> bool;
+extern auto classifyface(const cube &c, int orient, const ivec &co, int size) -> int;
+extern auto visibletris(const cube &c,
                        int orient,
                        const ivec &co,
                        int size,
                        ushort nmat = MAT_ALPHA,
-                       ushort matmask = MAT_ALPHA);
-extern int visibleorient(const cube &c, int orient);
+                       ushort matmask = MAT_ALPHA) -> int;
+extern auto visibleorient(const cube &c, int orient) -> int;
 extern void genfaceverts(const cube &c, int orient, ivec v[4]);
-extern int calcmergedsize(int orient, const ivec &co, int size, const vertinfo *verts, int numverts);
+extern auto calcmergedsize(int orient, const ivec &co, int size, const vertinfo *verts, int numverts) -> int;
 extern void invalidatemerges(cube &c, const ivec &co, int size, bool msg);
 extern void calcmerges();
-extern int mergefaces(int orient, facebounds *m, int sz);
+extern auto mergefaces(int orient, facebounds *m, int sz) -> int;
 extern void mincubeface(const cube &cu,
                         int orient,
                         const ivec &o,
@@ -406,7 +405,7 @@ extern void mincubeface(const cube &cu,
                         ushort matmask = MATF_VOLUME);
 extern void remip();
 
-static inline cubeext &ext(cube &c)
+static inline auto ext(cube &c) -> cubeext &
 {
     return *(c.ext ? c.ext : newcubeext(c));
 }
@@ -473,34 +472,34 @@ extern void cleanupvolumetric();
 extern void findshadowvas();
 extern void findshadowmms();
 
-extern int calcshadowinfo(const extentity &e, vec &origin, float &radius, vec &spotloc, int &spotangle, float &bias);
-extern int dynamicshadowvabounds(int mask, vec &bbmin, vec &bbmax);
+extern auto calcshadowinfo(const extentity &e, vec &origin, float &radius, vec &spotloc, int &spotangle, float &bias) -> int;
+extern auto dynamicshadowvabounds(int mask, vec &bbmin, vec &bbmax) -> int;
 extern void rendershadowmapworld();
 extern void batchshadowmapmodels(bool skipmesh = false);
 extern void rendershadowatlas();
 extern void renderrsmgeom(bool dyntex = false);
-extern bool useradiancehints();
+extern auto useradiancehints() -> bool;
 extern void renderradiancehints();
 extern void clearradiancehintscache();
 extern void cleanuplights();
 extern void workinoq();
 
-extern int calcbbsidemask(const vec &bbmin, const vec &bbmax, const vec &lightpos, float lightradius, float bias);
-extern int calcspheresidemask(const vec &p, float radius, float bias);
-extern int calctrisidemask(const vec &p1, const vec &p2, const vec &p3, float bias);
-extern int cullfrustumsides(const vec &lightpos, float lightradius, float size, float border);
-extern int calcbbcsmsplits(const ivec &bbmin, const ivec &bbmax);
-extern int calcspherecsmsplits(const vec &center, float radius);
-extern int calcbbrsmsplits(const ivec &bbmin, const ivec &bbmax);
-extern int calcspherersmsplits(const vec &center, float radius);
+extern auto calcbbsidemask(const vec &bbmin, const vec &bbmax, const vec &lightpos, float lightradius, float bias) -> int;
+extern auto calcspheresidemask(const vec &p, float radius, float bias) -> int;
+extern auto calctrisidemask(const vec &p1, const vec &p2, const vec &p3, float bias) -> int;
+extern auto cullfrustumsides(const vec &lightpos, float lightradius, float size, float border) -> int;
+extern auto calcbbcsmsplits(const ivec &bbmin, const ivec &bbmax) -> int;
+extern auto calcspherecsmsplits(const vec &center, float radius) -> int;
+extern auto calcbbrsmsplits(const ivec &bbmin, const ivec &bbmax) -> int;
+extern auto calcspherersmsplits(const vec &center, float radius) -> int;
 
-static inline bool sphereinsidespot(const vec &dir, int spot, const vec &center, float radius)
+static inline auto sphereinsidespot(const vec &dir, int spot, const vec &center, float radius) -> bool
 {
     const vec2 &sc = sincos360[spot];
     float cdist = dir.dot(center), cradius = radius + sc.y * cdist;
     return sc.x * sc.x * (center.dot(center) - cdist * cdist) <= cradius * cradius;
 }
-static inline bool bbinsidespot(const vec &origin, const vec &dir, int spot, const ivec &bbmin, const ivec &bbmax)
+static inline auto bbinsidespot(const vec &origin, const vec &dir, int spot, const ivec &bbmin, const ivec &bbmax) -> bool
 {
     vec radius = vec(ivec(bbmax).sub(bbmin)).mul(0.5f), center = vec(bbmin).add(radius);
     return sphereinsidespot(dir, spot, center.sub(origin), radius.magnitude());
@@ -539,7 +538,7 @@ enum
 
 extern void cleanupgbuffer();
 extern void initgbuffer();
-extern bool usepacknorm();
+extern auto usepacknorm() -> bool;
 extern void maskgbuffer(const char *mask);
 extern void bindgdepth();
 extern void preparegbuffer(bool depthclear = true);
@@ -562,13 +561,13 @@ extern void copyhdr(int sw,
                     bool swapxy = false);
 extern void setuplights();
 extern void setupgbuffer();
-extern GLuint shouldscale();
+extern auto shouldscale() -> GLuint;
 extern void doscale(GLuint outfbo = 0);
-extern bool debuglights();
+extern auto debuglights() -> bool;
 extern void cleanuplights();
 
 extern int avatarmask;
-extern bool useavatarmask();
+extern auto useavatarmask() -> bool;
 extern void enableavatarmask();
 extern void disableavatarmask();
 
@@ -577,20 +576,20 @@ extern matrix4 nojittermatrix;
 
 extern void setupaa(int w, int h);
 extern void jitteraa();
-extern bool maskedaa();
-extern bool multisampledaa();
+extern auto maskedaa() -> bool;
+extern auto multisampledaa() -> bool;
 extern void setaavelocityparams(GLenum tmu = GL_TEXTURE0);
 extern void setaamask(bool val);
 extern void enableaamask(int stencil = 0);
 extern void disableaamask();
 extern void doaa(GLuint outfbo, void (*resolve)(GLuint, int));
-extern bool debugaa();
+extern auto debugaa() -> bool;
 extern void cleanupaa();
 
 // ents
-extern char *entname(entity &e);
-extern bool haveselent();
-extern undoblock *copyundoents(undoblock *u);
+extern auto entname(entity &e) -> char *;
+extern auto haveselent() -> bool;
+extern auto copyundoents(undoblock *u) -> undoblock *;
 extern void pasteundoent(int idx, const entity &ue);
 extern void pasteundoents(undoblock *u);
 
@@ -623,8 +622,8 @@ extern vector<tjoint> tjoints;
 extern vector<vtxarray *> varoot;
 extern vector<vtxarray *> valist;
 
-extern ushort encodenormal(const vec &n);
-extern vec decodenormal(ushort norm);
+extern auto encodenormal(const vec &n) -> ushort;
+extern auto decodenormal(ushort norm) -> vec;
 extern void guessnormals(const vec *pos, int numverts, vec *normals);
 extern void reduceslope(ivec &n);
 extern void findtjoints();
@@ -658,26 +657,26 @@ extern void setvfcP(const vec &bbmin = vec(-1, -1, -1), const vec &bbmax = vec(1
 extern void savevfcP();
 extern void restorevfcP();
 extern void rendergeom();
-extern int findalphavas();
+extern auto findalphavas() -> int;
 extern void renderrefractmask();
 extern void renderalphageom(int side);
 extern void rendermapmodels();
 extern void renderoutline();
 extern void cleanupva();
 
-extern bool isfoggedsphere(float rad, const vec &cv);
-extern int isvisiblesphere(float rad, const vec &cv);
-extern int isvisiblebb(const ivec &bo, const ivec &br);
-extern bool bboccluded(const ivec &bo, const ivec &br);
+extern auto isfoggedsphere(float rad, const vec &cv) -> bool;
+extern auto isvisiblesphere(float rad, const vec &cv) -> int;
+extern auto isvisiblebb(const ivec &bo, const ivec &br) -> int;
+extern auto bboccluded(const ivec &bo, const ivec &br) -> bool;
 
 extern int deferquery;
 extern void flipqueries();
-extern occludequery *newquery(void *owner);
+extern auto newquery(void *owner) -> occludequery *;
 extern void startquery(occludequery *query);
 extern void endquery(occludequery *query);
-extern bool checkquery(occludequery *query, bool nowait = false);
+extern auto checkquery(occludequery *query, bool nowait = false) -> bool;
 extern void resetqueries();
-extern int getnumqueries();
+extern auto getnumqueries() -> int;
 extern void startbb(bool mask = true);
 extern void endbb(bool mask = true);
 extern void drawbb(const ivec &bo, const ivec &br);
@@ -687,14 +686,14 @@ extern void renderdecals();
 struct shadowmesh;
 extern void clearshadowmeshes();
 extern void genshadowmeshes();
-extern shadowmesh *findshadowmesh(int idx, extentity &e);
+extern auto findshadowmesh(int idx, extentity &e) -> shadowmesh *;
 extern void rendershadowmesh(shadowmesh *m);
 
 // dynlight
 
 extern void updatedynlights();
-extern int finddynlights();
-extern bool getdynlight(int n, vec &o, float &radius, vec &color, vec &dir, int &spot, int &flags);
+extern auto finddynlights() -> int;
+extern auto getdynlight(int n, vec &o, float &radius, vec &color, vec &dir, int &spot, int &flags) -> bool;
 
 // material
 
@@ -722,20 +721,20 @@ extern const vec matnormals[6];
 
 extern int showmat;
 
-extern int findmaterial(const char *name);
-extern const char *findmaterialname(int mat);
-extern const char *getmaterialdesc(int mat, const char *prefix = "");
+extern auto findmaterial(const char *name) -> int;
+extern auto findmaterialname(int mat) -> const char *;
+extern auto getmaterialdesc(int mat, const char *prefix = "") -> const char *;
 extern void genmatsurfs(const cube &c, const ivec &co, int size, vector<materialsurface> &matsurfs);
 extern void calcmatbb(vtxarray *va, const ivec &co, int size, vector<materialsurface> &matsurfs);
-extern int optimizematsurfs(materialsurface *matbuf, int matsurfs);
+extern auto optimizematsurfs(materialsurface *matbuf, int matsurfs) -> int;
 extern void setupmaterials(int start = 0, int len = 0);
-extern int findmaterials();
+extern auto findmaterials() -> int;
 extern void rendermaterialmask();
 extern void renderliquidmaterials();
 extern void rendersolidmaterials();
 extern void rendereditmaterials();
 extern void renderminimapmaterials();
-extern int visiblematerial(const cube &c, int orient, const ivec &co, int size, ushort matmask = MATF_VOLUME);
+extern auto visiblematerial(const cube &c, int orient, const ivec &co, int size, ushort matmask = MATF_VOLUME) -> int;
 
 // water
 extern int vertwater;
@@ -763,28 +762,28 @@ extern float watersy2;
         }                             \
     }
 
-extern const bvec &getwatercolour(int mat);
-extern const bvec &getwaterdeepcolour(int mat);
-extern const bvec &getwaterdeepfade(int mat);
-extern const bvec &getwaterrefractcolour(int mat);
-extern const bvec &getwaterfallcolour(int mat);
-extern const bvec &getwaterfallrefractcolour(int mat);
-extern int getwaterfog(int mat);
-extern int getwaterdeep(int mat);
-extern int getwaterspec(int mat);
-extern float getwaterrefract(int mat);
-extern int getwaterfallspec(int mat);
-extern float getwaterfallrefract(int mat);
+extern auto getwatercolour(int mat) -> const bvec &;
+extern auto getwaterdeepcolour(int mat) -> const bvec &;
+extern auto getwaterdeepfade(int mat) -> const bvec &;
+extern auto getwaterrefractcolour(int mat) -> const bvec &;
+extern auto getwaterfallcolour(int mat) -> const bvec &;
+extern auto getwaterfallrefractcolour(int mat) -> const bvec &;
+extern auto getwaterfog(int mat) -> int;
+extern auto getwaterdeep(int mat) -> int;
+extern auto getwaterspec(int mat) -> int;
+extern auto getwaterrefract(int mat) -> float;
+extern auto getwaterfallspec(int mat) -> int;
+extern auto getwaterfallrefract(int mat) -> float;
 
-extern const bvec &getlavacolour(int mat);
-extern int getlavafog(int mat);
-extern float getlavaglowmin(int mat);
-extern float getlavaglowmax(int mat);
-extern int getlavaspec(int mat);
+extern auto getlavacolour(int mat) -> const bvec &;
+extern auto getlavafog(int mat) -> int;
+extern auto getlavaglowmin(int mat) -> float;
+extern auto getlavaglowmax(int mat) -> float;
+extern auto getlavaspec(int mat) -> int;
 
-extern const bvec &getglasscolour(int mat);
-extern float getglassrefract(int mat);
-extern int getglassspec(int mat);
+extern auto getglasscolour(int mat) -> const bvec &;
+extern auto getglassrefract(int mat) -> float;
+extern auto getglassspec(int mat) -> int;
 
 extern void renderwater();
 extern void renderwaterfalls();
@@ -802,15 +801,15 @@ extern void cleanupserver();
 extern void serverslice(bool dedicated, uint timeout);
 extern void updatetime();
 
-extern ENetSocket connectmaster(bool wait);
+extern auto connectmaster(bool wait) -> ENetSocket;
 extern void localclienttoserver(int chan, ENetPacket *);
 extern void localconnect();
-extern bool serveroption(char *opt);
+extern auto serveroption(char *opt) -> bool;
 
 // serverbrowser
-extern bool resolverwait(const char *name, ENetAddress *address);
-extern int connectwithtimeout(ENetSocket sock, const char *hostname, const ENetAddress &address);
-extern void addserver(const char *name, int port = 0, const char *password = NULL, bool keep = false);
+extern auto resolverwait(const char *name, ENetAddress *address) -> bool;
+extern auto connectwithtimeout(ENetSocket sock, const char *hostname, const ENetAddress &address) -> int;
+extern void addserver(const char *name, int port = 0, const char *password = nullptr, bool keep = false);
 extern void writeservercfg();
 
 // client
@@ -825,7 +824,7 @@ extern hashnameset<ident> idents;
 extern int identflags;
 
 extern void clearoverrides();
-extern void writecfg(const char *name = NULL);
+extern void writecfg(const char *name = nullptr);
 
 extern void checksleep(int millis);
 extern void clearsleep(bool clearoverrides = true);
@@ -835,16 +834,16 @@ extern float conscale;
 
 extern void processkey(int code, bool isdown);
 extern void processtextinput(const char *str, int len);
-extern float rendercommand(float x, float y, float w);
-extern float renderfullconsole(float w, float h);
-extern float renderconsole(float w, float h, float abovehud);
+extern auto rendercommand(float x, float y, float w) -> float;
+extern auto renderfullconsole(float w, float h) -> float;
+extern auto renderconsole(float w, float h, float abovehud) -> float;
 extern void conoutf(const char *s, ...) PRINTFARGS(1, 2);
 extern void conoutf(int type, const char *s, ...) PRINTFARGS(2, 3);
 extern void resetcomplete();
 extern void complete(char *s, int maxlen, const char *cmdprefix);
-const char *getkeyname(int code);
-extern const char *addreleaseaction(char *s);
-extern tagval *addreleaseaction(ident *id, int numargs);
+auto getkeyname(int code) -> const char *;
+extern auto addreleaseaction(char *s) -> const char *;
+extern auto addreleaseaction(ident *id, int numargs) -> tagval *;
 extern void writebinds(stream *f);
 extern void writecompletions(stream *f);
 
@@ -865,23 +864,23 @@ enum
     CHANGE_SOUND = 1 << 1,
     CHANGE_SHADERS = 1 << 2
 };
-extern bool initwarning(const char *desc, int level = INIT_RESET, int type = CHANGE_GFX);
+extern auto initwarning(const char *desc, int level = INIT_RESET, int type = CHANGE_GFX) -> bool;
 
 extern bool grabinput;
 extern bool minimized;
 
-extern bool interceptkey(int sym);
+extern auto interceptkey(int sym) -> bool;
 
 extern float loadprogress;
-extern void renderbackground(const char *caption = NULL,
-                             Texture *mapshot = NULL,
-                             const char *mapname = NULL,
-                             const char *mapinfo = NULL,
+extern void renderbackground(const char *caption = nullptr,
+                             Texture *mapshot = nullptr,
+                             const char *mapname = nullptr,
+                             const char *mapinfo = nullptr,
                              bool force = false);
 extern void renderprogress(float bar, const char *text, bool background = false);
 
 extern void getfps(int &fps, int &bestdiff, int &worstdiff);
-extern int getclockmillis();
+extern auto getclockmillis() -> int;
 
 enum
 {
@@ -903,10 +902,10 @@ extern void textinput(bool on, int mask = ~0);
 // physics
 extern void modifyorient(float yaw, float pitch);
 extern void mousemove(int dx, int dy);
-extern bool pointincube(const clipplanes &p, const vec &v);
-extern bool overlapsdynent(const vec &o, float radius);
+extern auto pointincube(const clipplanes &p, const vec &v) -> bool;
+extern auto overlapsdynent(const vec &o, float radius) -> bool;
 extern void rotatebb(vec &center, vec &radius, int yaw, int pitch, int roll = 0);
-extern float shadowray(const vec &o, const vec &ray, float radius, int mode, extentity *t = NULL);
+extern auto shadowray(const vec &o, const vec &ray, float radius, int mode, extentity *t = nullptr) -> float;
 
 // world
 
@@ -916,7 +915,7 @@ extern void entcancel();
 extern void entitiesinoctanodes();
 extern void attachentities();
 extern void freeoctaentities(cube &c);
-extern bool pointinsel(const selinfo &sel, const vec &o);
+extern auto pointinsel(const selinfo &sel, const vec &o) -> bool;
 
 extern void resetmap();
 extern void startmap(const char *name);
@@ -956,23 +955,23 @@ extern void rendermapmodel(int idx,
                            float size = 1);
 extern void clearbatchedmapmodels();
 extern void preloadusedmapmodels(bool msg = false, bool bih = false);
-extern int batcheddynamicmodels();
-extern int batcheddynamicmodelbounds(int mask, vec &bbmin, vec &bbmax);
+extern auto batcheddynamicmodels() -> int;
+extern auto batcheddynamicmodelbounds(int mask, vec &bbmin, vec &bbmax) -> int;
 extern void cleanupmodels();
 
-static inline model *loadmapmodel(int n)
+static inline auto loadmapmodel(int n) -> model *
 {
     if (mapmodels.inrange(n))
     {
         model *m = mapmodels[n].m;
-        return m ? m : loadmodel(NULL, n);
+        return m ? m : loadmodel(nullptr, n);
     }
-    return NULL;
+    return nullptr;
 }
 
-static inline mapmodelinfo *getmminfo(int n)
+static inline auto getmminfo(int n) -> mapmodelinfo *
 {
-    return mapmodels.inrange(n) ? &mapmodels[n] : NULL;
+    return mapmodels.inrange(n) ? &mapmodels[n] : nullptr;
 }
 
 // renderparticles
@@ -993,7 +992,7 @@ extern void seedparticles();
 extern void updateparticles();
 extern void debugparticles();
 extern void renderparticles(int layer = PL_ALL);
-extern bool printparticles(extentity &e, char *buf, int len);
+extern auto printparticles(extentity &e, char *buf, int len) -> bool;
 extern void cleanupparticles();
 
 // stain
@@ -1009,7 +1008,7 @@ struct stainrenderer;
 
 extern void initstains();
 extern void clearstains();
-extern bool renderstains(int sbuf, bool gbuf, int layer = 0);
+extern auto renderstains(int sbuf, bool gbuf, int layer = 0) -> bool;
 extern void cleanupstains();
 extern void genstainmmtri(stainrenderer *s, const vec v[3]);
 
@@ -1019,22 +1018,22 @@ extern int skyshadow;
 extern int explicitsky;
 
 extern void drawskybox(bool clear = false);
-extern bool hasskybox();
-extern bool limitsky();
-extern bool renderexplicitsky(bool outline = false);
+extern auto hasskybox() -> bool;
+extern auto limitsky() -> bool;
+extern auto renderexplicitsky(bool outline = false) -> bool;
 extern void cleanupsky();
 
 // ui
 
 namespace UI
 {
-    bool hascursor();
+    auto hascursor() -> bool;
     void getcursorpos(float &x, float &y);
     void resetcursor();
-    bool movecursor(int dx, int dy);
-    bool keypress(int code, bool isdown);
-    bool textinput(const char *str, int len);
-    float abovehud();
+    auto movecursor(int dx, int dy) -> bool;
+    auto keypress(int code, bool isdown) -> bool;
+    auto textinput(const char *str, int len) -> bool;
+    auto abovehud() -> float;
 
     void setup();
     void update();
@@ -1071,11 +1070,11 @@ extern void cleanupgrass();
 extern int blendpaintmode;
 
 struct BlendMapCache;
-extern BlendMapCache *newblendmapcache();
+extern auto newblendmapcache() -> BlendMapCache *;
 extern void freeblendmapcache(BlendMapCache *&cache);
-extern bool setblendmaporigin(BlendMapCache *cache, const ivec &o, int size);
-extern bool hasblendmap(BlendMapCache *cache);
-extern uchar lookupblendmap(BlendMapCache *cache, const vec &pos);
+extern auto setblendmaporigin(BlendMapCache *cache, const ivec &o, int size) -> bool;
+extern auto hasblendmap(BlendMapCache *cache) -> bool;
+extern auto lookupblendmap(BlendMapCache *cache, const vec &pos) -> uchar;
 extern void resetblendmap();
 extern void enlargeblendmap();
 extern void shrinkblendmap(int octant);
@@ -1084,11 +1083,11 @@ extern void stoppaintblendmap();
 extern void trypaintblendmap();
 extern void renderblendbrush(GLuint tex, float x, float y, float w, float h);
 extern void renderblendbrush();
-extern bool loadblendmap(stream *f, int info);
+extern auto loadblendmap(stream *f, int info) -> bool;
 extern void saveblendmap(stream *f);
-extern uchar shouldsaveblendmap();
-extern bool usesblendmap(int x1 = 0, int y1 = 0, int x2 = worldsize, int y2 = worldsize);
-extern int calcblendlayer(int x1, int y1, int x2, int y2);
+extern auto shouldsaveblendmap() -> uchar;
+extern auto usesblendmap(int x1 = 0, int y1 = 0, int x2 = worldsize, int y2 = worldsize) -> bool;
+extern auto calcblendlayer(int x1, int y1, int x2, int y2) -> int;
 extern void updateblendtextures(int x1 = 0, int y1 = 0, int x2 = worldsize, int y2 = worldsize);
 extern void bindblendtexture(const ivec &p);
 extern void clearblendtextures();
