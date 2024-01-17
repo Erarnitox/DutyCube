@@ -279,8 +279,8 @@ static void text_color(char c, char* stack, int size, int& sp, bvec color, int a
 			color = bvec(255, 255, 255);
 			break;	// white
 		case '8':
-			color = bvec(224, 190, 100);
-			break;	// "DropEngine Gold" (0xE0BE64)
+			color = bvec(17, 32, 99);
+			break;	// "DropEngine Blue" (#2B51FC)
 		case '9':
 			color = bvec(160, 240, 120);
 			break;
