@@ -216,9 +216,6 @@ void rendervertwater(int subdiv, int xo, int yo, int z, int size, int mat) {
 	wsize = size;
 	whscale = 59.0f / (23.0f * wsize * wsize) / (2 * M_PI);
 
-	ASSERT((wx1 & (subdiv - 1)) == 0);
-	ASSERT((wy1 & (subdiv - 1)) == 0);
-
 	switch (mat) {
 	case MAT_WATER: {
 		whoffset = fmod(float(lastmillis / 600.0f / (2 * M_PI)), 1.0f);

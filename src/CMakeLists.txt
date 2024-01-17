@@ -88,7 +88,15 @@ if(DROP_ENGINE_BUILD_CLIENT)
   add_executable(dropengine ${CLIENT_SOURCES})
   target_include_directories(dropengine PRIVATE ${CLIENT_INCLUDES})
   target_link_libraries(dropengine ${CLIENT_LIBRARIES})
+
   # clang_format(dropengine ${CMAKE_CURRENT_LIST_DIR})
+  set_property(TARGET dropengine PROPERTY CXX_STANDARD ${CPP_STANDARD})
+  if (MSVC)
+    # for windows msvc or clang-cl
+    # target_compile_options(dropengine PRIVATE "/W4")
+  else()
+    # target_compile_options(dropengine PRIVATE -Werror -Wall -Wextra -Wpedantic -Wshadow -Wconversion)
+  endif()
 
   # DropEngine client launcher.
   if(UNIX)
@@ -115,11 +123,19 @@ if(DROP_ENGINE_BUILD_SERVER)
       enet
       ${ZLIB_LIBRARIES}
       )
-  add_executable(ress_server ${SERVER_SOURCES})
-  target_compile_definitions(ress_server PRIVATE -DSTANDALONE)
-  target_include_directories(ress_server PRIVATE ${SERVER_INCLUDES})
-  target_link_libraries(ress_server ${SERVER_LIBRARIES})
-  # clang_format(ress_server ${CMAKE_CURRENT_LIST_DIR})
+  add_executable(drop_server ${SERVER_SOURCES})
+  target_compile_definitions(drop_server PRIVATE -DSTANDALONE)
+  target_include_directories(drop_server PRIVATE ${SERVER_INCLUDES})
+  target_link_libraries(drop_server ${SERVER_LIBRARIES})
+  
+  # clang_format(drop_server ${CMAKE_CURRENT_LIST_DIR})
+  set_property(TARGET drop_server PROPERTY CXX_STANDARD ${CPP_STANDARD})
+  if (MSVC)
+    # for windows msvc or clang-cl
+    # target_compile_options(drop_server PRIVATE "/W4")
+  else()
+    # target_compile_options(drop_server PRIVATE -Werror -Wall -Wextra -Wpedantic -Wshadow -Wconversion)
+  endif()
 
   # Master executable.
   set(MASTER_SOURCES
@@ -136,9 +152,17 @@ if(DROP_ENGINE_BUILD_SERVER)
       enet
       ${ZLIB_LIBRARIES}
       )
-  add_executable(ress_master ${MASTER_SOURCES})
-  target_compile_definitions(ress_master PRIVATE -DSTANDALONE)
-  target_include_directories(ress_master PRIVATE ${MASTER_INCLUDES})
-  target_link_libraries(ress_master ${MASTER_LIBRARIES})
+  add_executable(drop_master ${MASTER_SOURCES})
+  target_compile_definitions(drop_master PRIVATE -DSTANDALONE)
+  target_include_directories(drop_master PRIVATE ${MASTER_INCLUDES})
+  target_link_libraries(drop_master ${MASTER_LIBRARIES})
+  
   # clang_format(ress_master ${CMAKE_CURRENT_LIST_DIR})
+  set_property(TARGET drop_master PROPERTY CXX_STANDARD ${CPP_STANDARD})
+  if (MSVC)
+    # for windows msvc or clang-cl
+    # target_compile_options(drop_master PRIVATE "/W4")
+  else()
+    # target_compile_options(drop_master PRIVATE -Werror -Wall -Wextra -Wpedantic -Wshadow -Wconversion)
+  endif()
 endif()

@@ -1272,7 +1272,6 @@ auto main(int argc, char** argv) -> int {
 		logoutf("init: game");
 		game::parseoptions(gameargs);
 		initserver(dedicated > 0, dedicated > 1);  // never returns if dedicated
-		ASSERT(dedicated <= 1);
 		game::initclient();
 
 		logoutf("init: video");
@@ -1428,7 +1427,6 @@ auto main(int argc, char** argv) -> int {
 			}
 		}
 
-		ASSERT(0);
 		return EXIT_FAILURE;
 
 #if defined(_WIN32) && !defined(_DEBUG) && !defined(__GNUC__)

@@ -1,27 +1,18 @@
 // generic useful stuff for any C++ program
+#pragma once
 
-#ifndef _TOOLS_H
-#define _TOOLS_H
-
+#include <cstddef>
 #ifdef NULL
 #undef NULL
 #endif
 #define NULL 0
 
-typedef unsigned char uchar;
-typedef unsigned short ushort;
-typedef unsigned int uint;
-typedef unsigned long ulong;
-typedef signed long long int llong;
-typedef unsigned long long int ullong;
-
-#ifdef _DEBUG
-#define ASSERT(c) assert(c)
-#else
-#define ASSERT(c) \
-	if (c) {      \
-	}
-#endif
+using uchar = unsigned char;
+using ushort = unsigned short;
+using uint = unsigned int;
+using ulong = unsigned long;
+using llong = signed long long int;
+using ullong = unsigned long long int;
 
 #if defined(__GNUC__) || (defined(_MSC_VER) && _MSC_VER >= 1400)
 #define RESTRICT __restrict
@@ -35,18 +26,20 @@ typedef unsigned long long int ullong;
 #define UNUSED
 #endif
 
-void* operator new(size_t, bool);
-void* operator new[](size_t, bool);
-inline void* operator new(size_t, void* p) {
+/*/
+void* operator new(size_t, bool) noexcept;
+void* operator new[](size_t, bool) noexcept;
+inline void* operator new(size_t, void* p) noexcept {
 	return p;
 }
-inline void* operator new[](size_t, void* p) {
+inline void* operator new[](size_t, void* p) noexcept {
 	return p;
 }
-inline void operator delete(void*, void*) {
+inline void operator delete(void*, void*) noexcept {
 }
-inline void operator delete[](void*, void*) {
+inline void operator delete[](void*, void*) noexcept {
 }
+*/
 
 #ifdef swap
 #undef swap
@@ -785,11 +778,9 @@ struct vector {
 		return ulen;
 	}
 	T& operator[](int i) {
-		ASSERT(i >= 0 && i < ulen);
 		return buf[i];
 	}
 	const T& operator[](int i) const {
-		ASSERT(i >= 0 && i < ulen);
 		return buf[i];
 	}
 
@@ -801,7 +792,6 @@ struct vector {
 	}
 
 	void shrink(int i) {
-		ASSERT(i <= ulen);
 		if (isclass<T>::no)
 			ulen = i;
 		else
@@ -809,7 +799,6 @@ struct vector {
 				drop();
 	}
 	void setsize(int i) {
-		ASSERT(i <= ulen);
 		ulen = i;
 	}
 
@@ -1775,5 +1764,3 @@ struct ipmask {
 		return (host & mask) == ip;
 	}
 };
-
-#endif

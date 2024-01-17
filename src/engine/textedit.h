@@ -254,7 +254,6 @@ struct editor {
 	// also ensures that cy is always within lines[] and cx is valid
 	bool region(int& sx, int& sy, int& ex, int& ey) {
 		int n = lines.length();
-		ASSERT(n != 0);
 		if (cy < 0)
 			cy = 0;
 		else if (cy >= n)
@@ -298,7 +297,6 @@ struct editor {
 	// also ensures that cy is always within lines[] and cx is valid
 	editline& currentline() {
 		int n = lines.length();
-		ASSERT(n != 0);
 		if (cy < 0)
 			cy = 0;
 		else if (cy >= n)

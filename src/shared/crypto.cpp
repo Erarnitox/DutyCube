@@ -311,7 +311,6 @@ struct bigint {
 
 	template <int X_DIGITS, int Y_DIGITS>
 	auto sub(const bigint<X_DIGITS>& x, const bigint<Y_DIGITS>& y) -> bigint& {
-		ASSERT(x >= y);
 		dbldigit borrow = 0;
 		int i;
 		for (i = 0; i < y.len || borrow; i++) {
@@ -755,7 +754,6 @@ struct gfield : gfint {
 			len = C.len;
 			memcpy(digits, C.digits, len * sizeof(digit));
 		}
-		ASSERT(*this < P);
 		return true;
 	}
 	void invert() {
@@ -785,7 +783,6 @@ struct gfield : gfint {
 #if GF_BITS == 224
 #error Unsupported GF
 #else
-		ASSERT((P.digits[0] % 4) == 3);
 		static const gfint Padd1div4(gfint(P).add(bigint<1>(1)).rshift(2));
 		switch (legendre(x)) {
 		case 0:

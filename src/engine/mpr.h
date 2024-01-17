@@ -445,7 +445,6 @@ bool collide(const T& p1, const U& p2, vec* contactnormal, vec* contactpoint1, v
 
 	// Determine whether origin is on + or - side of plane (v1,v0,v2)
 	n.cross(v0, v1, v2);
-	ASSERT(!n.iszero());
 	// If the origin is on the - side of the plane, reverse the direction of the plane
 	if (n.dot(v0) > 0) {
 		swap(v1, v2);
@@ -501,7 +500,6 @@ bool collide(const T& p1, const U& p2, vec* contactnormal, vec* contactpoint1, v
 
 			// Can this happen???  Can it be handled more cleanly?
 			if (n.iszero()) {
-				ASSERT(0);
 				return true;
 			}
 

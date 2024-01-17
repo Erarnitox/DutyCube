@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.27)
 
 #include(cmake/utility.cmake)
 
 set(CPP_STANDARD 23)
-set(CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD ${CPP_STANDARD}) #TODO: remove -> is set on a per target basis
 
 set(BUILD_SHARED_LIBS OFF)
 
@@ -19,4 +19,4 @@ option(DROP_ENGINE_BUILD_SERVER "Build the game server" ON)
 # Generate compile commands (compile_commands.json) for clang tooling etc.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_subdirectory(src)
+add_subdirectory(src bin)
