@@ -1697,6 +1697,14 @@ void parsemessages(int cn, gameent* d, ucharbuf& p) {
 			damaged(damage, target, actor, false);
 			break;
 		}
+		case N_REGEN: {
+			const int cn = getint(p), health = getint(p);
+			gameent *d = getclient(cn);
+			if (!d) break;
+			d->health = health;
+			d->lastregen = lastmillis;
+			break;
+		}
 
 		case N_HITPUSH: {
 			int tcn = getint(p), atk = getint(p), damage = getint(p);

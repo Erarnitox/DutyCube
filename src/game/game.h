@@ -349,6 +349,7 @@ enum {
 	N_SWITCHTEAM,
 	N_SERVCMD,
 	N_DEMOPACKET,
+	N_REGEN,
 	NUMMSG
 };
 
@@ -759,6 +760,7 @@ struct gameent : dynent, gamestate {
 	int respawned{-1}, suicided{-1};
 	int lastpain{0};
 	int lastaction, lastattack;
+	int lastregen;
 	int attacking;
 	int lasttaunt;
 	int lasthitpushgun;

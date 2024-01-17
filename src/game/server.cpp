@@ -115,6 +115,7 @@ struct servstate : gamestate {
 	int state{CS_DEAD}, editstate{CS_DEAD};
 	int lastdeath, deadflush, lastspawn, lifesequence{0};
 	int lastshot;
+	int lastregen;
 	projectilestate<8> projs;
 	int frags, flags, deaths, teamkills, shotdamage, damage;
 	int lasttimeplayed, timeplayed;
@@ -2458,6 +2459,19 @@ void flushevents(clientinfo* ci, int millis) {
 void processevents() {
 	loopv(clients) {
 		clientinfo* ci = clients[i];
+
+		auto& cs = ci->state;
+		// health regeneration every 100ms
+		if(cs.state == CS_ALIVE && cs.health < cs.maxhealth && gamemillis - cs.lastregen > 100) {
+			int amt = (gamemillis - cs.lastregen) / 5;
+			
+			if(amt >= cs.maxhealth - cs.health)
+				amt = cs.maxhealth - cs.health;
+
+			sendf(NULL, 1, "ri3", N_REGEN, i, cs.health += amt);
+			cs.lastregen = gamemillis;
+		}
+
 		flushevents(ci, gamemillis);
 	}
 }
