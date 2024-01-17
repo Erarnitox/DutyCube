@@ -244,6 +244,7 @@ void updateworld()	// main game update loop
 	gets2c();
 	if (connected) {
 		if (player1->state == CS_DEAD) {
+			damagealpha(0);
 			if (player1->ragdoll)
 				moveragdoll(player1);
 			else if (lastmillis - player1->lastpain < 2000) {
@@ -251,6 +252,13 @@ void updateworld()	// main game update loop
 				moveplayer(player1, 10, true);
 			}
 		} else if (!intermission) {
+			// update health
+			damagealpha(
+				1.0f - (
+					static_cast<float>(player1->health) / 
+					static_cast<float>(player1->maxhealth)
+			));
+			
 			if (player1->ragdoll)
 				cleanragdoll(player1);
 			crouchplayer(player1, 10, true);
@@ -358,7 +366,6 @@ void damaged(int damage, gameent* d, gameent* actor, bool local) {
 		lasthit = lastmillis;
 	}
 	if (d == h) {
-		damageblend(damage);
 		damagecompass(damage, actor->o);
 	}
 	damageeffect(damage, d, d != h);

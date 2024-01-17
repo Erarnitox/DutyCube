@@ -328,7 +328,6 @@ void hit(int damage, dynent* d, gameent* at, const vec& vel, int atk, float info
 		if (at == player1) {
 			damageeffect(damage, f);
 			if (f == player1) {
-				damageblend(damage);
 				damagecompass(damage, at ? at->o : f->o);
 				playsound(S_PAIN2);
 			} else

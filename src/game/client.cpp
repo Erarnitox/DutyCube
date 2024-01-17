@@ -1308,6 +1308,7 @@ void parsepositions(ucharbuf& p) {
 			gameent* d = getclient(cn);
 			if (!d || d->lifesequence < 0 || seqcolor != (d->lifesequence & 1) || d->state == CS_DEAD)
 				continue;
+
 			float oldyaw = d->yaw, oldpitch = d->pitch, oldroll = d->roll;
 			d->yaw = yaw;
 			d->pitch = pitch;

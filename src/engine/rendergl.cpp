@@ -2564,28 +2564,22 @@ void drawdamagecompass(int w, int h) {
 		gle::end();
 }
 
-int damageblendmillis = 0;
-
+static float damagescreenalpha = 0.0f;
 VARFP(damagescreen, 0, 1, 1, {
 	if (!damagescreen)
-		damageblendmillis = 0;
+		damagescreenalpha = 0;
 });
 VARP(damagescreenfactor, 1, 75, 100);
-VARP(damagescreenalpha, 1, 45, 100);
 VARP(damagescreenfade, 0, 500, 500);
 VARP(damagescreenmin, 1, 10, 100);
 VARP(damagescreenmax, 1, 100, 500);
 
-void damageblend(int n) {
-	if (!damagescreen || minimized)
-		return;
-	if (lastmillis > damageblendmillis)
-		damageblendmillis = lastmillis;
-	damageblendmillis += clamp(n, damagescreenmin, damagescreenmax) * damagescreenfactor;
+void damagealpha(float n) {
+	damagescreenalpha = n;
 }
 
 void drawdamagescreen(int w, int h) {
-	if (lastmillis >= damageblendmillis)
+	if (damagecompassalpha <= 0.01f)
 		return;
 
 	hudshader->set();
@@ -2596,9 +2590,8 @@ void drawdamagescreen(int w, int h) {
 
 	glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 	glBindTexture(GL_TEXTURE_2D, damagetex->id);
-	float fade = damagescreenalpha / 100.0f;
-	if (damageblendmillis - lastmillis < damagescreenfade)
-		fade *= float(damageblendmillis - lastmillis) / damagescreenfade;
+	
+	const auto& fade { damagescreenalpha };
 	gle::colorf(fade, fade, fade, fade);
 
 	hudquad(0, 0, w, h);
