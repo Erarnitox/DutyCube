@@ -839,11 +839,11 @@ VARP(hitcrosshair, 0, 425, 1000);
 auto defaultcrosshair(int index) -> const char* {
 	switch (index) {
 	case 2:
-		return "media/interface/crosshair/o_dot-hit.png";
+		return "media/interface/crosshair/dot-hit.png";
 	case 1:
-		return "media/interface/crosshair/o_dot.png";
+		return "media/interface/crosshair/dot.png";
 	default:
-		return "media/interface/crosshair/o_dot.png";
+		return "media/interface/crosshair/dot.png";
 	}
 }
 
