@@ -426,20 +426,17 @@ void killed(gameent* d, gameent* actor) {
 	const char* const aname = actor->name;
 
 	if (d == actor)
-		conoutf(CON_GAMEINFO, "\f2%s suicided...", dname);
+		conoutf(CON_GAMEINFO, "\f4%s suicided...", dname);
 	else {
-		char aColor[]{"\f3"};
-		char dColor[]{"\f3"};
+		char aColor[]{"\f9"};
+		char dColor[]{"\f9"};
 
-		if (d == player1) {
-			strncpy(dColor, "\f7", 3);
-		} else if (isteam(player1->team, d->team)) {
-			strncpy(dColor, "\f0", 3);
+		if (!isteam(player1->team, d->team)) {
+			strncpy(dColor, "\f2", 3);
 		}
-		if (actor == player1) {
-			strncpy(aColor, "\f7", 3);
-		} else if (isteam(player1->team, actor->team)) {
-			strncpy(aColor, "\f0", 3);
+
+		if (!isteam(player1->team, actor->team)) {
+			strncpy(aColor, "\f2", 3);
 		}
 
 		const char* weapon = weapon_names[actor->lastattack];
