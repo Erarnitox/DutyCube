@@ -255,19 +255,24 @@ static void text_color(char c, char* stack, int size, int& sp, bvec color, int a
 			stack[sp] = c;
 		switch (c) {
 		case '0':
-			color = bvec(64, 255, 128);
+			//#55a56a green
+			color = bvec(0x55, 0xa5, 0x6a);
 			break;	// green: player talk
 		case '1':
-			color = bvec(96, 160, 255);
+			//#1167a0 blue
+			color = bvec(0x11, 0x67, 0xa0);
 			break;	// blue: "echo" command
 		case '2':
-			color = bvec(255, 192, 64);
+			//#f5eb8a yellow
+			color = bvec(0xf5, 0xeb, 0x8a);
 			break;	// yellow: gameplay messages
 		case '3':
-			color = bvec(255, 64, 64);
+			// #ec501d red
+			color = bvec(0xec, 0x50, 0x1d);
 			break;	// red: important errors
 		case '4':
-			color = bvec(128, 128, 128);
+			// #4f585d gray
+			color = bvec(0x4f, 0x58, 0x5d);
 			break;	// gray
 		case '5':
 			color = bvec(192, 64, 192);
@@ -279,10 +284,12 @@ static void text_color(char c, char* stack, int size, int& sp, bvec color, int a
 			color = bvec(255, 255, 255);
 			break;	// white
 		case '8':
-			color = bvec(17, 32, 99);
+			// #6fcdf1
+			color = bvec(0x6f, 0xcd, 0xf1);
 			break;	// "DropEngine Blue" (#2B51FC)
 		case '9':
-			color = bvec(160, 240, 120);
+			// #bfe4f6 Ice-Blue
+			color = bvec(0xbf, 0xe4, 0xf6);
 			break;
 		default:
 			gle::color(color, a);
