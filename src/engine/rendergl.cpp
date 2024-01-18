@@ -2650,7 +2650,7 @@ void drawhitmarker() {
     
     glBindTexture(GL_TEXTURE_2D, ch->id);
     glBegin(GL_TRIANGLE_STRIP);
-    const float hitsize = 50.f;
+    const float hitsize = 40.f;
 
     hudquad((hudw-hitsize)/2, (hudh-hitsize)/2, hitsize, hitsize);
 }
