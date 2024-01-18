@@ -305,6 +305,7 @@ void hit(int damage, dynent* d, gameent* at, const vec& vel, int atk, float info
 			playsound(sameteam(d) ? S_HITTEAM : S_HIT);
 		}
 		lasthit = lastmillis;
+		at->lasthit = lastmillis;
 	}
 
 	auto* f = (gameent*)d;

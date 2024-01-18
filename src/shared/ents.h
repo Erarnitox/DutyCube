@@ -219,6 +219,7 @@ struct dynent : physent	 // animated characters, or characters that can receive 
 	ragdolldata* ragdoll;
 	occludequery* query;
 	int lastrendered;
+	int lasthit;
 
 	dynent() : ragdoll(NULL), query(NULL), lastrendered(0) {
 		reset();

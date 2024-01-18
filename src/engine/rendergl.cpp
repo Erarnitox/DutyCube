@@ -2616,7 +2616,7 @@ void loadcrosshair(const char* name, int i) {
 	if (crosshairs[i] == notexture) {
 		name = game::defaultcrosshair(i);
 		if (!name)
-			name = "media/interface/crosshair/default.png";
+			name = "assets/res/img/ui/dot.png";
 		crosshairs[i] = textureload(name, 3, true);
 	}
 }
@@ -2632,10 +2632,28 @@ ICOMMAND(getcrosshair, "i", (int* i), {
 	if (*i >= 0 && *i < MAXCROSSHAIRS) {
 		name = crosshairs[*i] ? crosshairs[*i]->name : game::defaultcrosshair(*i);
 		if (!name)
-			name = "media/interface/crosshair/default.png";
+			name = "assets/res/img/ui/dot.png";
 	}
 	result(name);
 });
+
+void drawhitmarker() {
+	
+    if (!player->lasthit || lastmillis - player->lasthit > 200)
+        return;
+
+    glColor4f(1, 1, 1, (player->lasthit + 200 - lastmillis) / 1000.f);
+	
+    static Texture *ch = nullptr;
+    if (!ch) ch = textureload("assets/res/img/ui/hit.png", 3);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
+    glBindTexture(GL_TEXTURE_2D, ch->id);
+    glBegin(GL_TRIANGLE_STRIP);
+    const float hitsize = 50.f;
+
+    hudquad((hudw-hitsize)/2, (hudh-hitsize)/2, hitsize, hitsize);
+}
 
 void writecrosshairs(stream* f) {
 	loopi(MAXCROSSHAIRS) if (crosshairs[i] && crosshairs[i] != notexture)
@@ -2724,6 +2742,7 @@ void gl_drawhud() {
 	debugparticles();
 
 	if (!mainmenu) {
+		drawhitmarker();
 		drawdamagescreen(w, h);
 		drawdamagecompass(w, h);
 	}

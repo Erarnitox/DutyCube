@@ -122,6 +122,7 @@ void respawnself() {
 		spawnplayer(player1);
 		showscores(false);
 		lasthit = 0;
+		player1->lasthit = 0;
 		lastregen = 0;
 		if (cmode)
 			cmode->respawned(player1);
@@ -363,9 +364,11 @@ void damaged(int damage, gameent* d, gameent* actor, bool local) {
 
 	gameent* h = hudplayer();
 	if (h != player1 && actor == h && d != actor) {
-		if (hitsound && lasthit != lastmillis)
+		if (hitsound && lasthit != lastmillis) {
 			playsound(S_HIT);
-		lasthit = lastmillis;
+			player1->lasthit = lastmillis;
+			lasthit = lastmillis;
+		}
 	}
 	if (d == h) {
 		damagecompass(damage, actor->o);
@@ -605,6 +608,7 @@ void startgame() {
 	showscores(false);
 	disablezoom();
 	lasthit = 0;
+	player1->lasthit = 0;
 
 	execident("mapstart");
 }
@@ -839,14 +843,7 @@ VARP(teamcrosshair, 0, 1, 1);
 VARP(hitcrosshair, 0, 425, 1000);
 
 auto defaultcrosshair(int index) -> const char* {
-	switch (index) {
-	case 2:
-		return "media/interface/crosshair/dot_hit.png";
-	case 1:
-		return "media/interface/crosshair/dot.png";
-	default:
-		return "media/interface/crosshair/dot.png";
-	}
+	return "assets/res/img/ui/dot.png";
 }
 
 auto selectcrosshair(vec& col) -> int {
