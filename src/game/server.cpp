@@ -2463,7 +2463,7 @@ void processevents() {
 		auto& cs = ci->state;
 		// health regeneration every 100ms
 		if(cs.state == CS_ALIVE && cs.health < cs.maxhealth && gamemillis - cs.lastregen > 100) {
-			int amt = (gamemillis - cs.lastregen) / 5;
+			int amt = 50;
 			
 			if(amt >= cs.maxhealth - cs.health)
 				amt = cs.maxhealth - cs.health;

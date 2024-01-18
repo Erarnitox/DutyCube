@@ -939,6 +939,7 @@ extern gameent* player1;
 extern vector<gameent*> players, clients;
 extern int lastspawnattempt;
 extern int lasthit;
+extern int lastregen;
 extern int following;
 extern int smoothmove, smoothdist;
 

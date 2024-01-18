@@ -8,6 +8,7 @@ namespace game {
 bool intermission = false;
 int maptime = 0, maprealtime = 0, maplimit = -1;
 int lasthit = 0, lastspawnattempt = 0;
+int lastregen = 0;
 int killtime = 0;
 int points = 0;
 int points_total = 0;
@@ -121,6 +122,7 @@ void respawnself() {
 		spawnplayer(player1);
 		showscores(false);
 		lasthit = 0;
+		lastregen = 0;
 		if (cmode)
 			cmode->respawned(player1);
 	}

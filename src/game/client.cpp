@@ -1621,8 +1621,11 @@ void parsemessages(int cn, gameent* d, ucharbuf& p) {
 			if (!d)
 				break;
 			d->state = CS_SPAWNING;
-			if (d == followingplayer())
+			if (d == followingplayer()) {
 				lasthit = 0;
+			}
+			d->lastregen = 0;
+				
 			checkfollow();
 			break;
 		}
@@ -1653,6 +1656,7 @@ void parsemessages(int cn, gameent* d, ucharbuf& p) {
 			}
 			if (cmode)
 				cmode->respawned(s);
+
 			ai::spawned(s);
 			checkfollow();
 			addmsg(N_SPAWN, "rcii", s, s->lifesequence, s->gunselect);
@@ -2012,8 +2016,11 @@ void parsemessages(int cn, gameent* d, ucharbuf& p) {
 
 		case N_DEMOPLAYBACK: {
 			int on = getint(p);
-			if (on)
+			if (on){
 				player1->state = CS_SPECTATOR;
+				player1->health = player1->maxhealth;
+				player1->lastregen = 0;
+			}
 			else
 				clearclients();
 			demoplayback = on != 0;
@@ -2082,6 +2089,7 @@ void parsemessages(int cn, gameent* d, ucharbuf& p) {
 					disablezoom();
 				}
 				s->state = CS_SPECTATOR;
+				s->health = s->maxhealth;
 			} else if (s->state == CS_SPECTATOR)
 				deathstate(s, true);
 			checkfollow();
