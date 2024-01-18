@@ -1,5 +1,6 @@
 // rendergl.cpp: core opengl rendering stuff
 
+#include "SDL_opengl.h"
 #include "engine/engine.h"
 
 bool hasVAO = false, hasTR = false, hasTSW = false, hasPBO = false, hasFBO = false, hasAFBO = false, hasDS = false,
@@ -2586,9 +2587,9 @@ void drawdamagescreen(int w, int h) {
 
 	static Texture* damagetex = nullptr;
 	if (!damagetex)
-		damagetex = textureload("media/interface/hud/damage.png", 3);
+		damagetex = textureload("assets/res/img/ui/damage.png", 3);
 
-	glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glBindTexture(GL_TEXTURE_2D, damagetex->id);
 	
 	const auto& fade { damagescreenalpha };
