@@ -2601,7 +2601,7 @@ void drawdamagescreen(int w, int h) {
 VAR(hidestats, 0, 0, 1);
 VAR(hidehud, 0, 0, 1);
 
-VARP(crosshairsize, 0, 15, 50);
+int crosshairsize = 5;
 VARP(cursorsize, 0, 15, 30);
 VARP(crosshairfx, 0, 1, 1);
 VARP(crosshaircolors, 0, 1, 1);
@@ -2691,6 +2691,49 @@ void drawcrosshair(int w, int h) {
 		}
 		chsize = crosshairsize * w / 900.0f;
 	}
+
+	if(!windowhit) {
+		//if (n == CROSSHAIR_DEFAULT) col.alpha = 1.f - p->weaponsel->dynspread() / 1200.f;
+		//if (n != CROSSHAIR_SCOPE && player->zoomed) col.alpha = 1 - sqrtf(p->zoomed * (n == CROSSHAIR_SHOTGUN ? 0.5f : 1) * 1.6f);
+		// draw new-style crosshair
+		
+		float clen = 10.0;
+		float cthickness = 3.0;
+		const bool honly = false;//melee_weap(p->weaponsel->type) || p->weaponsel->type == GUN_GRENADE;
+
+		if (honly) chsize = chsize * 1.5f;
+		else {
+			//chsize = player->weaponsel->dynspread() * 100 * (p->perk2 == PERK2_STEADY ? .65f : 1) / dynfov();
+			//if (isthirdperson) chsize *= worldpos.dist(focus->o) / worldpos.dist(camera1->o);
+			//if (m_classic(gamemode, mutators)) chsize *= .6f;
+		}
+
+		static Texture* cv = nullptr;
+		static Texture* ch = nullptr;
+		if (!cv) cv = textureload("assets/res/img/ui/vertical.png", 3);
+		if (!ch) ch = textureload("assets/res/img/ui/horizontal.png", 3);
+
+		// horizontal
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		gle::color(vec(1, 1, 1));
+		glBindTexture(GL_TEXTURE_2D, ch->id);
+		
+		// left
+		hudquad((w - clen)/ 2 - clen , (h-cthickness) / 2, clen, cthickness);
+		//right
+		hudquad((w + clen)/ 2 , (h-cthickness) / 2, clen, cthickness);
+
+		// vertical
+		if (!honly) {
+			glBindTexture(GL_TEXTURE_2D, cv->id);
+			// top
+			hudquad((w - cthickness)/ 2, ((h-clen)/2) - clen, cthickness, clen);
+
+			// bottom
+			hudquad((w - cthickness)/ 2, ((h-clen)/2) + clen, cthickness, clen);
+		}
+	}
+
 	if (crosshair->type & Texture::ALPHA)
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	else
@@ -2699,8 +2742,8 @@ void drawcrosshair(int w, int h) {
 	gle::color(color);
 	float x = cx * w - (windowhit ? 0 : chsize / 2.0f);
 	float y = cy * h - (windowhit ? 0 : chsize / 2.0f);
-	glBindTexture(GL_TEXTURE_2D, crosshair->id);
 
+	glBindTexture(GL_TEXTURE_2D, crosshair->id);
 	hudquad(x, y, chsize, chsize);
 }
 
