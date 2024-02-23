@@ -758,15 +758,77 @@ auto abovegameplayhud(int w, int h) -> float {
 }
 
 void drawhudicons(gameent* d) {
+	resethudshader();
+	if (d->state != CS_DEAD) {
+		// drawicon(d->gunselect, HICON_X + 2*HICON_STEP, HICON_Y);
+	}
+
+	//spread = (player1->lastaction - lastmillis)*100;
+	//spread = player1->vel.magnitude();
+
+	if(d->state == CS_ALIVE) {
+		//spread = (d->lastaction - lastmillis)*100;
+		/*	
+        loopv(flags) if(flags[i].owner == d)
+        {
+            float x = 1800*w/h*0.5f-HICON_SIZE/2, y = 1800*0.95f-HICON_SIZE/2;
+            drawicon(flags[i].team==1 ? HICON_BLUE_FLAG : HICON_RED_FLAG, x, y);
+            break;
+        }
+		*/
+    }
+
+	// minimap
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    int s = 1800/4;
+	int x = s/10;
+	int y = s/10;
+    
+	gle::colorf(1, 1, 1, 0.8f);
+    bindminimap();
+    drawminimap(d, x, y, s);
+
+    gle::colorf(1, 1, 1);
+    float margin = 0.04f, roffset = s*margin, rsize = s + 2*roffset;
+    setradartex();
+    //drawradar(x - roffset, y - roffset, rsize/3);
+    pushhudmatrix();
+    hudmatrix.translate(x - roffset + 0.5f*rsize, y - roffset + 0.5f*rsize, 0);
+    hudmatrix.rotate_around_z((camera1->yaw + 180)*-RAD);
+    flushhudmatrix();
+    drawradar(-0.5f*rsize, -0.5f*rsize, rsize);
+    pophudmatrix();
+    drawplayerblip(d, x, y, s, 1.5f);
+    
+	/*
+	loopv(flags) {
+        flag &f = flags[i];
+        if(!validteam(f.team)) continue;
+        if(f.owner) {
+            if(lastmillis%1000 >= 500) continue;
+        } else if(f.droptime && (f.droploc.x < 0 || lastmillis%300 >= 150)) continue;
+            drawblip(d, x, y, s, i, true);
+    }*/
+    
+	drawteammates(d, x, y, s);
+	/*
+    if(d->state == CS_DEAD) {
+        int wait = respawnwait(d);
+        if(wait>=0) {
+            pushhudscale(2);
+            bool flash = wait>0 && d==player1 && lastspawnattempt>=d->lastpain && lastmillis < lastspawnattempt+100;
+            draw_textf("%s%d", (x+s/2)/2-(wait>=10 ? 28 : 16), (y+s/2)/2-32, flash ? "\f3" : "", wait);
+            pophudmatrix();
+            resethudshader();
+        }
+    }
+	*/
+
 	if (d->state != CS_DEAD) {
 		resethudshader();
 		drawicon(d->team, HICON_X, HICON_Y, 120);
 		draw_textf("Score:", HICON_X + HICON_SPACE + 120, HICON_Y);
 		draw_textf("%d", HICON_X + HICON_SPACE + 120, HICON_Y + HICON_SIZE / 2, points_total);
-	}
-
-	if (d->state != CS_DEAD) {
-		// drawicon(d->gunselect, HICON_X + 2*HICON_STEP, HICON_Y);
 	}
 }
 

@@ -37,6 +37,8 @@ extern int renderw;
 extern int renderh;
 extern int hudw;
 extern int hudh;
+extern float spread;
+extern float weaponspread;
 
 extern vector<int> entgroup;
 

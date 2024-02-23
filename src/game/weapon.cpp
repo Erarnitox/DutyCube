@@ -1,4 +1,5 @@
 // weapon.cpp: all shooting and effects code, projectile management
+#include "engine/engine.h"
 #include "game/game.h"
 
 namespace game {
@@ -17,6 +18,9 @@ void gunselect(int gun, gameent* d) {
 	if (gun != d->gunselect) {
 		addmsg(N_GUNSELECT, "rci", d, gun);
 		playsound(S_WEAPLOAD, &d->o);
+		if(d == player1) {
+			weaponspread = attacks[gun].spread;
+		}
 	}
 	d->gunselect = gun;
 }

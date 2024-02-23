@@ -740,7 +740,7 @@ struct gamestate {
 };
 
 #define MAXTEAMS 2
-static const char* const weapon_names[5] = {"Sniper", "Fist", "Plasma", "Plasma", "Plasma"};
+static const char* const weapon_names[5] = {"Sniper", "Fist", "Plasma", "Fist", "Plasma"};
 static const char* const teamnames[1 + MAXTEAMS] = {"", "Blue", "Red"};
 static const char* const teamtextcode[1 + MAXTEAMS] = {"\f0", "\f1", "\f3"};
 static const int teamtextcolor[1 + MAXTEAMS] = {0x1EC850, 0x6496FF, 0xFF4B19};
@@ -929,6 +929,11 @@ struct clientmode {
 
 extern clientmode* cmode;
 extern void setclientmode();
+extern void drawminimap(gameent* d, float x, float y, float s);
+extern void setradartex();
+extern void drawradar(float x, float y, float s);
+extern void drawplayerblip(gameent* d, float x, float y, float s, float blipsize );
+extern void drawteammates(gameent* d, float x, float y, float s);
 
 // game
 extern int nextmode;

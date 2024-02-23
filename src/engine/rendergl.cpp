@@ -2,6 +2,7 @@
 
 #include "SDL_opengl.h"
 #include "engine/engine.h"
+#include "game/game.h"
 
 bool hasVAO = false, hasTR = false, hasTSW = false, hasPBO = false, hasFBO = false, hasAFBO = false, hasDS = false,
 	 hasTF = false, hasCBF = false, hasS3TC = false, hasFXT1 = false, hasLATC = false, hasRGTC = false, hasAF = false,
@@ -12,6 +13,8 @@ bool hasVAO = false, hasTR = false, hasTSW = false, hasPBO = false, hasFBO = fal
 	 hasCI = false;
 bool mesa = false, intel = false, amd = false, nvidia = false;
 
+float spread = 100;
+float weaponspread = 50;
 int hasstencil = 0;
 
 VAR(glversion, 1, 0, 0);
@@ -1388,6 +1391,7 @@ void computezoom() {
 		if (zoomprogress <= 0)
 			zoom = 0;
 	}
+	
 	curfov = zoomfov * zoomprogress + fov * (1 - zoomprogress);
 	curavatarfov = avatarzoomfov * zoomprogress + avatarfov * (1 - zoomprogress);
 }
@@ -2692,8 +2696,13 @@ void drawcrosshair(int w, int h) {
 		chsize = crosshairsize * w / 900.0f;
 	}
 
-	//TODO: make global
-	float spread = 100;
+	int weaponwait{ (lastmillis - game::player1->lastaction)/10 };
+	if(weaponwait > 20) weaponwait = 20;
+	float dynspread{ weaponspread + player->vel.magnitude() - weaponwait};
+	if(zoom) {
+		dynspread -= dynspread*zoomprogress;
+	}
+	spread = dynspread;
 
 	if(windowhit || spread < 0.01f){
 		if (crosshair->type & Texture::ALPHA)
@@ -2726,8 +2735,8 @@ void drawcrosshair(int w, int h) {
 
 		static Texture* cv = nullptr;
 		static Texture* ch = nullptr;
-		if (!cv) cv = textureload("assets/res/img/ui/vertical.png", 3);
-		if (!ch) ch = textureload("assets/res/img/ui/horizontal.png", 3);
+		if (!cv) cv = textureload("assets/res/img/ui/vertical.png", 0);
+		if (!ch) ch = textureload("assets/res/img/ui/horizontal.png", 0);
 
 		// horizontal
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
