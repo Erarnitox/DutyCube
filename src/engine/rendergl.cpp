@@ -2068,18 +2068,6 @@ void clipminimap(ivec& bbmin,
 }
 
 void drawminimap() {
-	if (!game::needminimap()) {
-		clearminimap();
-		return;
-	}
-
-	if (!showminimap) {
-		if (!minimaptex)
-			glGenTextures(1, &minimaptex);
-		createtexture(minimaptex, 1, 1, nominimapcolour.v, 3, 0, GL_RGB, GL_TEXTURE_2D);
-		return;
-	}
-
 	GLERROR;
 	renderprogress(0, "generating mini-map...", !renderedframe);
 
@@ -2153,7 +2141,6 @@ void drawminimap() {
 	rendergbuffer();
 
 	rendershadowatlas();
-
 	shademinimap(minimapcolour.tocolor().mul(ldrscale));
 
 	if (minimapheight > 0 && minimapheight < minimapcenter.z + minimapradius.z) {
@@ -2176,7 +2163,7 @@ void drawminimap() {
 	camera1 = oldcamera;
 	drawtex = 0;
 
-	createtexture(minimaptex, size, size, nullptr, 3, 1, GL_RGB5, GL_TEXTURE_2D);
+	createtexture(minimaptex, size, size, nullptr, 3, 1, GL_RGB8, GL_TEXTURE_2D);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
 	GLfloat border[4] = {minimapcolour.x / 255.0f, minimapcolour.y / 255.0f, minimapcolour.z / 255.0f, 1.0f};
@@ -2819,9 +2806,9 @@ void gl_drawhud() {
 				getfps(nextfps[0], nextfps[1], nextfps[2]);
 				loopi(3) if (prevfps[i] == curfps[i]) curfps[i] = nextfps[i];
 				if (showfpsrange)
-					draw_textf("fps %d+%d-%d", conw - 7 * FONTH, conh - FONTH * 3 / 2, curfps[0], curfps[1], curfps[2]);
+					draw_textf("fps %d+%d-%d", conw - 7 * FONTH, FONTH * 3 / 2, curfps[0], curfps[1], curfps[2]);
 				else
-					draw_textf("fps %d", conw - 5 * FONTH, conh - FONTH * 3 / 2, curfps[0]);
+					draw_textf("fps %d", conw - 5 * FONTH, FONTH * 3 / 2, curfps[0]);
 				roffset += FONTH;
 			}
 

@@ -827,9 +827,35 @@ void drawhudicons(gameent* d) {
 
 	if (d->state != CS_DEAD) {
 		resethudshader();
+
+		//Team color
+		gle::colorf(0.2, 0.6, 1, 0.7);
+
+		// background image left
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		static Texture* bg_tex_left = nullptr;
+		if (!bg_tex_left) {
+			bg_tex_left = textureload("assets/res/img/ui/left.png", 3);
+		}
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glBindTexture(GL_TEXTURE_2D, bg_tex_left->id);
+		hudquad(HICON_X + HICON_SPACE + 80, HICON_Y, 300, 120);
+
+		// background image right
+		static Texture* bg_tex_right = nullptr;
+		if (!bg_tex_right) {
+			bg_tex_right = textureload("assets/res/img/ui/right.png", 3);
+		}
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glBindTexture(GL_TEXTURE_2D, bg_tex_right->id);
+		hudquad((hudw*1.65)-300, HICON_Y, 330, 150);
+
+		// Score and Team Icon
 		drawicon(d->team, HICON_X, HICON_Y, 120);
 		draw_textf("Score:", HICON_X + HICON_SPACE + 120, HICON_Y);
 		draw_textf("%d", HICON_X + HICON_SPACE + 120, HICON_Y + HICON_SIZE / 2, points_total);
+
+		// ammo text
 	}
 }
 
@@ -890,7 +916,7 @@ void gameplayhud(int w, int h) {
 				killtime = 0;
 				points = 0;
 			}
-
+			
 			drawhudicons(d);
 		}
 		if (cmode)

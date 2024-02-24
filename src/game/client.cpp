@@ -96,6 +96,7 @@ void drawteammates(gameent* d, float x, float y, float s) {
 	int alive = 0, dead = 0;
 	loopv(players) {
 		gameent* o = players[i];
+		if(lastmillis - !o->lastattack > 200) continue;
 		if (o != d && o->state == CS_ALIVE && o->team == d->team) {
 			if (!alive++) {
 				setbliptex(d->team, "_alive");
