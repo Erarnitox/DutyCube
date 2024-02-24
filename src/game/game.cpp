@@ -798,7 +798,9 @@ void drawhudicons(gameent* d) {
     flushhudmatrix();
     drawradar(-0.5f*rsize, -0.5f*rsize, rsize);
     pophudmatrix();
-    drawplayerblip(d, x, y, s, 1.5f);
+    
+	drawteammates(d, x, y, s);
+	drawplayerblip(d, x, y, s, 1.5f);
     
 	/*
 	loopv(flags) {
@@ -810,7 +812,6 @@ void drawhudicons(gameent* d) {
             drawblip(d, x, y, s, i, true);
     }*/
     
-	drawteammates(d, x, y, s);
 	/*
     if(d->state == CS_DEAD) {
         int wait = respawnwait(d);

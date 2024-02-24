@@ -66,20 +66,27 @@ void drawteammate(gameent* d, float x, float y, float s, gameent* o, float scale
 }
 
 void setbliptex(int team, const char* type = "") {
-	defformatstring(blipname, "media/interface/radar/blip%s%s.png", teamblipcolor[validteam(team) ? team : 0], type);
-	settexture(blipname, 3);
+	if(team == player1->team && m_check(gamemode, M_TEAM)){
+		settexture("assets/res/img/ui/player.png", 3);
+	} else {
+		settexture("assets/res/img/ui/dot.png", 3);
+	}
 }
 
 void drawplayerblip(gameent* d, float x, float y, float s, float blipsize = 1) {
 	if (d->state != CS_ALIVE && d->state != CS_DEAD)
 		return;
 	float scale = calcradarscale();
-	setbliptex(d->team, d->state == CS_DEAD ? "_dead" : "_alive");
+	
+	settexture("assets/res/img/ui/player.png", 3);
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	//gle::colorf(1, 1, 0, 100.0f);
 	gle::defvertex(2);
 	gle::deftexcoord0();
 	gle::begin(GL_QUADS);
 	drawteammate(d, x, y, s, d, scale, blipsize);
 	gle::end();
+	//gle::colorf(1, 0, 0, 100.0f);
 }
 
 void drawteammates(gameent* d, float x, float y, float s) {
@@ -117,16 +124,10 @@ void drawteammates(gameent* d, float x, float y, float s) {
 		gle::end();
 }
 
-#include "game/ctf.h"
-
 clientmode* cmode = nullptr;
-ctfclientmode ctfmode;
 
 void setclientmode() {
-	if (m_ctf)
-		cmode = &ctfmode;
-	else
-		cmode = nullptr;
+	cmode = nullptr;
 }
 
 bool senditemstoserver = false, sendcrc = false;  // after a map change, since server doesn't have map data
@@ -2107,10 +2108,6 @@ void parsemessages(int cn, gameent* d, ucharbuf& p) {
 				conoutf(fmt[reason], colorname(w), teamnames[w->team]);
 			break;
 		}
-
-#define PARSEMESSAGES 1
-#include "game/ctf.h"
-#undef PARSEMESSAGES
 
 		case N_NEWMAP: {
 			int size = getint(p);

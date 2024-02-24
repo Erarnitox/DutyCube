@@ -876,9 +876,6 @@ struct servmode {
 };
 
 #define SERVMODE 1
-#include "game/ctf.h"
-
-ctfservmode ctfmode;
 servmode* smode = nullptr;
 
 auto canspawnitem(int type) -> bool {
@@ -2105,10 +2102,7 @@ void changemap(const char* s, int mode) {
 	if (m_teammode)
 		autoteam();
 
-	if (m_ctf)
-		smode = &ctfmode;
-	else
-		smode = nullptr;
+	smode = nullptr;
 
 	if (m_timed && smapname[0])
 		sendf(-1, 1, "ri2", N_TIMEUP, gamemillis < gamelimit && !interm ? max((gamelimit - gamemillis) / 1000, 1) : 0);
@@ -3822,10 +3816,6 @@ void parsepacket(int sender, int chan, packetbuf& p)  // has to parse exactly ea
 		case N_SERVCMD:
 			getstring(text, p);
 			break;
-
-#define PARSEMESSAGES 1
-#include "game/ctf.h"
-#undef PARSEMESSAGES
 
 		case -1:
 			disconnect_client(sender, DISC_MSGERR);
