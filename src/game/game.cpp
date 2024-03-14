@@ -780,27 +780,30 @@ void drawhudicons(gameent* d) {
 
 	// minimap
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    int s = 1800/4;
+    int s = 1800/5;
 	int x = s/10;
 	int y = s/10;
     
-	gle::colorf(1, 1, 1, 0.8f);
-    bindminimap();
-    drawminimap(d, x, y, s);
-
     gle::colorf(1, 1, 1);
     float margin = 0.04f, roffset = s*margin, rsize = s + 2*roffset;
     setradartex();
-    //drawradar(x - roffset, y - roffset, rsize/3);
     pushhudmatrix();
     hudmatrix.translate(x - roffset + 0.5f*rsize, y - roffset + 0.5f*rsize, 0);
+	//gle::colorf(0.3, 0.5, 0.4, 0.8f);
+	//bindminimap();
+	//drawMinimapSquare(d, x, y, s);
+	gle::colorf(1, 1, 1, 1);
+	drawradar(x - roffset, y - roffset, rsize);
+	
     hudmatrix.rotate_around_z((camera1->yaw + 180)*-RAD);
     flushhudmatrix();
-    drawradar(-0.5f*rsize, -0.5f*rsize, rsize);
     pophudmatrix();
     
 	drawteammates(d, x, y, s);
 	drawplayerblip(d, x, y, s, 1.5f);
+
+	settexture("assets/res/img/ui/overlay.png", 3);
+	drawradar(x - roffset, y - roffset, rsize);
     
 	/*
 	loopv(flags) {

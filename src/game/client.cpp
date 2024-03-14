@@ -11,24 +11,64 @@ auto calcradarscale() -> float {
 }
 
 void drawminimap(gameent* d, float x, float y, float s) {
-	vec pos = vec(d->o).sub(minimapcenter).mul(minimapscale).add(0.5f), dir;
-	vecfromyawpitch(camera1->yaw, 0, 1, 0, dir);
-	float scale = calcradarscale();
-	gle::defvertex(2);
-	gle::deftexcoord0();
-	gle::begin(GL_TRIANGLE_FAN);
-	loopi(16) {
-		vec v = vec(0, -1, 0).rotate_around_z(i / 16.0f * 2 * M_PI);
-		gle::attribf(x + 0.5f * s * (1.0f + v.x), y + 0.5f * s * (1.0f + v.y));
-		vec tc = vec(dir).rotate_around_z(i / 16.0f * 2 * M_PI);
-		gle::attribf(1.0f - (pos.x + tc.x * scale * minimapscale.x), pos.y + tc.y * scale * minimapscale.y);
-	}
-	gle::end();
+	constexpr int numVertices = 4; // Number of vertices for a square
+
+    vec pos = vec(d->o).sub(minimapcenter).mul(minimapscale).add(0.5f);
+	vec dir;
+    vecfromyawpitch(camera1->yaw, 0, 1, 0, dir);
+
+    float scale = calcradarscale();
+
+    gle::defvertex(2);
+    gle::deftexcoord0();
+    gle::begin(GL_TRIANGLE_FAN);
+
+    for (int i = 0; i < numVertices; ++i) {
+        // Calculate vertex positions for a square
+        float angle = i * M_PI / 2.0f; // Rotate 90 degrees for each vertex
+        vec v = vec(cos(angle), -sin(angle), 0); // Calculate vertex position
+        vec tc = vec(cos(angle), sin(angle), 0); // Corresponding texture coordinate
+
+        // Translate and scale the vertex position
+        vec vertexPos = vec(x + 0.5f * s * (1.0f + v.x), y + 0.5f * s * (1.0f + v.y));
+
+        gle::attribf(vertexPos.x, vertexPos.y);
+        gle::attribf(1.0f - (pos.x + tc.x * scale * minimapscale.x), pos.y + tc.y * scale * minimapscale.y);
+    }
+
+    gle::end();
+}
+
+void drawMinimapSquare(gameent* d, float x, float y, float s) {
+    // Calculate vertices of the square
+    float halfSize = s / 2.0f;
+    float left = x - halfSize;
+    float right = x + halfSize;
+    float top = y - halfSize;
+    float bottom = y + halfSize;
+
+    gle::defvertex(2);
+    gle::deftexcoord0();
+    gle::begin(GL_TRIANGLE_STRIP);
+    // Draw the square
+    gle::attribf(left, top);
+    gle::attribf(0.0f, 0.0f);
+
+    gle::attribf(right, top);
+    gle::attribf(1.0f, 0.0f);
+
+    gle::attribf(left, bottom);
+    gle::attribf(0.0f, 1.0f);
+
+    gle::attribf(right, bottom);
+    gle::attribf(1.0f, 1.0f);
+    gle::end();
 }
 
 void setradartex() {
-	settexture("media/interface/radar/radar.png", 3);
+	settexture("assets/res/img/ui/minimap.png", 3);
 }
+
 
 void drawradar(float x, float y, float s) {
 	gle::defvertex(2);

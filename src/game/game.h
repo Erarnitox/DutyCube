@@ -930,6 +930,7 @@ struct clientmode {
 extern clientmode* cmode;
 extern void setclientmode();
 extern void drawminimap(gameent* d, float x, float y, float s);
+extern void drawMinimapSquare(gameent* d, float x, float y, float s);
 extern void setradartex();
 extern void drawradar(float x, float y, float s);
 extern void drawplayerblip(gameent* d, float x, float y, float s, float blipsize );
