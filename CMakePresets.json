@@ -7,32 +7,24 @@
     "version" : 3,
     "configurePresets" : [
       {
-        "name" : "debug",
-        "displayName" : "Debug - (Linux) Ninja and Clang",
-        "description" : "Erarnitox's recommended settings for a debug build. Uses clang and Ninja",
+        "name" : "default",
+        "displayName" : "default - (Linux) Ninja and Clang",
+        "description" : "Uses clang and Ninja",
         "generator" : "Ninja",
-        "binaryDir" : "${sourceDir}/debug",
+        "binaryDir" : "${sourceDir}/build",
         "cacheVariables" : {
             "CMAKE_EXPORT_COMPILE_COMMANDS" : true,
-            "CMAKE_BUILD_TYPE" : "Debug",
-            "CMAKE_INSTALL_PREFIX" : "${sourceDir}/debug",
+            "CMAKE_BUILD_TYPE" : "RelWithDebInfo",
+            "CMAKE_INSTALL_PREFIX" : "${sourceDir}/build",
             "CMAKE_CXX_COMPILER": "clang++",
             "CMAKE_BUILD_WITH_INSTALL_RPATH": true
         }
-      },
+      }
+    ],
+    "buildPresets": [
       {
-        "name" : "release",
-        "displayName" : "Buildserver - (Linux) Ninja and Clang",
-        "description" : "Erarnitox's recommended settings for a release build. Uses clang and Ninja",
-        "generator" : "Ninja",
-        "binaryDir" : "${sourceDir}/release",
-        "cacheVariables" : {
-            "CMAKE_EXPORT_COMPILE_COMMANDS" : false,
-            "CMAKE_BUILD_TYPE" : "Release",
-            "CMAKE_INSTALL_PREFIX" : "${sourceDir}/release",
-            "CMAKE_CXX_COMPILER": "clang++",
-            "CMAKE_BUILD_WITH_INSTALL_RPATH": true
-        }
+        "name": "default",
+        "configurePreset": "default"
       }
     ]
   }

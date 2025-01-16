@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.27)
 #include(cmake/utility.cmake)
 
 set(CPP_STANDARD 23)
-set(CMAKE_CXX_STANDARD ${CPP_STANDARD}) #TODO: remove -> is set on a per target basis
+set(CMAKE_CXX_STANDARD ${CPP_STANDARD})
 
 set(BUILD_SHARED_LIBS OFF)
 

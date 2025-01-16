@@ -1,0 +1,134 @@
+[1/67] Building CXX object bin/CMakeFiles/dropengine.dir/shared/geom.cpp.o
+[2/67] Building CXX object bin/CMakeFiles/dropengine.dir/engine/command.cpp.o
+FAILED: bin/CMakeFiles/dropengine.dir/engine/command.cpp.o 
+/usr/bin/clang++  -I/home/me/Projects/CPP/DropEngine/src -I/home/me/Projects/CPP/DropEngine/src/third_party/enet/include -I/usr/include/SDL2 -O2 -g -DNDEBUG -std=gnu++23 -MD -MT bin/CMakeFiles/dropengine.dir/engine/command.cpp.o -MF bin/CMakeFiles/dropengine.dir/engine/command.cpp.o.d -o bin/CMakeFiles/dropengine.dir/engine/command.cpp.o -c /home/me/Projects/CPP/DropEngine/src/engine/command.cpp
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:645:5: error: expected expression
+  645 |     OVERRIDEVAR(return, id->overrideval.i = *id->storage.i, , )
+      |     ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:639:18: note: expanded from macro 'OVERRIDEVAR'
+  639 |         (clearval); \
+      |                  ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:653:5: error: expected expression
+  653 |     OVERRIDEVAR(return, id->overrideval.f = *id->storage.f, , );
+      |     ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:639:18: note: expanded from macro 'OVERRIDEVAR'
+  639 |         (clearval); \
+      |                  ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:743:9: error: expected expression
+  743 |         OVERRIDEVAR(return, id->overrideval.i = *id->storage.i, , )
+      |         ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:639:18: note: expanded from macro 'OVERRIDEVAR'
+  639 |         (clearval); \
+      |                  ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:782:9: error: expected expression
+  782 |         OVERRIDEVAR(return, id->overrideval.f = *id->storage.f, , );
+      |         ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:639:18: note: expanded from macro 'OVERRIDEVAR'
+  639 |         (clearval); \
+      |                  ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3602:26: error: a type specifier is required for all declarations
+ 3602 | LISTFIND(listfind=, "i", int, , parseint(start) == *val);
+      |                          ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3602:1: error: expected ')'
+ 3602 | LISTFIND(listfind=, "i", int, , parseint(start) == *val);
+      | ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3590:53: note: expanded from macro 'LISTFIND'
+ 3590 |     ICOMMAND(name, "s" fmt "i", (char *list, (type) *val, int *skip), \
+      |                                                     ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3602:1: note: to match this '('
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3590:33: note: expanded from macro 'LISTFIND'
+ 3590 |     ICOMMAND(name, "s" fmt "i", (char *list, (type) *val, int *skip), \
+      |                                 ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3602:26: error: a type specifier is required for all declarations
+ 3602 | LISTFIND(listfind=, "i", int, , parseint(start) == *val);
+      |                          ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3602:1: error: expected ')'
+ 3602 | LISTFIND(listfind=, "i", int, , parseint(start) == *val);
+      | ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3590:53: note: expanded from macro 'LISTFIND'
+ 3590 |     ICOMMAND(name, "s" fmt "i", (char *list, (type) *val, int *skip), \
+      |                                                     ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3602:1: note: to match this '('
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3590:33: note: expanded from macro 'LISTFIND'
+ 3590 |     ICOMMAND(name, "s" fmt "i", (char *list, (type) *val, int *skip), \
+      |                                 ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3602:53: error: use of undeclared identifier 'val'
+ 3602 | LISTFIND(listfind=, "i", int, , parseint(start) == *val);
+      |                                                     ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3602:1: error: use of undeclared identifier 'skip'
+ 3602 | LISTFIND(listfind=, "i", int, , parseint(start) == *val);
+      | ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3597:20: note: expanded from macro 'LISTFIND'
+ 3597 |             loopi(*skip) { if(!parselist(s)) goto notfound; n++; } \
+      |                    ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3603:27: error: a type specifier is required for all declarations
+ 3603 | LISTFIND(listfind=f, "f", float, , parsefloat(start) == *val);
+      |                           ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3603:1: error: expected ')'
+ 3603 | LISTFIND(listfind=f, "f", float, , parsefloat(start) == *val);
+      | ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3590:53: note: expanded from macro 'LISTFIND'
+ 3590 |     ICOMMAND(name, "s" fmt "i", (char *list, (type) *val, int *skip), \
+      |                                                     ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3603:1: note: to match this '('
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3590:33: note: expanded from macro 'LISTFIND'
+ 3590 |     ICOMMAND(name, "s" fmt "i", (char *list, (type) *val, int *skip), \
+      |                                 ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3603:27: error: a type specifier is required for all declarations
+ 3603 | LISTFIND(listfind=f, "f", float, , parsefloat(start) == *val);
+      |                           ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3603:1: error: expected ')'
+ 3603 | LISTFIND(listfind=f, "f", float, , parsefloat(start) == *val);
+      | ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3590:53: note: expanded from macro 'LISTFIND'
+ 3590 |     ICOMMAND(name, "s" fmt "i", (char *list, (type) *val, int *skip), \
+      |                                                     ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3603:1: note: to match this '('
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3590:33: note: expanded from macro 'LISTFIND'
+ 3590 |     ICOMMAND(name, "s" fmt "i", (char *list, (type) *val, int *skip), \
+      |                                 ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3603:58: error: use of undeclared identifier 'val'
+ 3603 | LISTFIND(listfind=f, "f", float, , parsefloat(start) == *val);
+      |                                                          ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3603:1: error: use of undeclared identifier 'skip'
+ 3603 | LISTFIND(listfind=f, "f", float, , parsefloat(start) == *val);
+      | ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3597:20: note: expanded from macro 'LISTFIND'
+ 3597 |             loopi(*skip) { if(!parselist(s)) goto notfound; n++; } \
+      |                    ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3604:27: error: a type specifier is required for all declarations
+ 3604 | LISTFIND(listfind=s, "s", char, int len = (int)strlen(val), int(end-start) == len && !memcmp(start, val, len));
+      |                           ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3604:1: error: expected ')'
+ 3604 | LISTFIND(listfind=s, "s", char, int len = (int)strlen(val), int(end-start) == len && !memcmp(start, val, len));
+      | ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3590:53: note: expanded from macro 'LISTFIND'
+ 3590 |     ICOMMAND(name, "s" fmt "i", (char *list, (type) *val, int *skip), \
+      |                                                     ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3604:1: note: to match this '('
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3590:33: note: expanded from macro 'LISTFIND'
+ 3590 |     ICOMMAND(name, "s" fmt "i", (char *list, (type) *val, int *skip), \
+      |                                 ^
+/home/me/Projects/CPP/DropEngine/src/engine/command.cpp:3604:27: error: a type specifier is required for all declarations
+ 3604 | LISTFIND(listfind=s, "s", char, int len = (int)strlen(val), int(end-start) == len && !memcmp(start, val, len));
+      |                           ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+[3/67] Building CXX object bin/CMakeFiles/dropengine.dir/engine/dynlight.cpp.o
+[4/67] Building CXX object bin/CMakeFiles/dropengine.dir/shared/glemu.cpp.o
+[5/67] Building CXX object bin/CMakeFiles/dropengine.dir/engine/client.cpp.o
+[6/67] Building CXX object bin/CMakeFiles/dropengine.dir/engine/grass.cpp.o
+[7/67] Building CXX object bin/CMakeFiles/dropengine.dir/engine/main.cpp.o
+[8/67] Building CXX object bin/CMakeFiles/dropengine.dir/shared/tools.cpp.o
+[9/67] Building CXX object bin/CMakeFiles/dropengine.dir/engine/menus.cpp.o
+[10/67] Building CXX object bin/CMakeFiles/dropengine.dir/shared/zip.cpp.o
+[11/67] Building CXX object bin/CMakeFiles/dropengine.dir/engine/aa.cpp.o
+[12/67] Building CXX object bin/CMakeFiles/dropengine.dir/engine/light.cpp.o
+[13/67] Building CXX object bin/CMakeFiles/dropengine.dir/engine/bih.cpp.o
+[14/67] Building CXX object bin/CMakeFiles/dropengine.dir/shared/stream.cpp.o
+[15/67] Building CXX object bin/CMakeFiles/dropengine.dir/engine/blend.cpp.o
+[16/67] Building CXX object bin/CMakeFiles/dropengine.dir/engine/console.cpp.o
+[17/67] Building CXX object bin/CMakeFiles/dropengine.dir/shared/crypto.cpp.o
+[18/67] Building CXX object bin/CMakeFiles/dropengine.dir/engine/material.cpp.o
+[19/67] Building CXX object bin/CMakeFiles/dropengine.dir/engine/movie.cpp.o
+ninja: build stopped: subcommand failed.

@@ -14,11 +14,6 @@ endif()
 # Add third party libraries (e.g. built from source).
 add_subdirectory(third_party)
 
-# Additional compiler flags.
-if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  # Silence warnings from Clang.
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-missing-exception-spec")
-endif()
 
 if(DROP_ENGINE_BUILD_CLIENT)
   # Client executable.
@@ -128,7 +123,6 @@ if(DROP_ENGINE_BUILD_SERVER)
   target_include_directories(drop_server PRIVATE ${SERVER_INCLUDES})
   target_link_libraries(drop_server ${SERVER_LIBRARIES})
   
-  # clang_format(drop_server ${CMAKE_CURRENT_LIST_DIR})
   set_property(TARGET drop_server PROPERTY CXX_STANDARD ${CPP_STANDARD})
   if (MSVC)
     # for windows msvc or clang-cl
@@ -157,12 +151,11 @@ if(DROP_ENGINE_BUILD_SERVER)
   target_include_directories(drop_master PRIVATE ${MASTER_INCLUDES})
   target_link_libraries(drop_master ${MASTER_LIBRARIES})
   
-  # clang_format(ress_master ${CMAKE_CURRENT_LIST_DIR})
   set_property(TARGET drop_master PROPERTY CXX_STANDARD ${CPP_STANDARD})
   if (MSVC)
     # for windows msvc or clang-cl
-    # target_compile_options(drop_master PRIVATE "/W4")
+    #target_compile_options(drop_master PRIVATE "/W4")
   else()
-    # target_compile_options(drop_master PRIVATE -Werror -Wall -Wextra -Wpedantic -Wshadow -Wconversion)
+    #target_compile_options(drop_master PRIVATE -Werror -Wall -Wextra -Wpedantic -Wshadow -Wconversion)
   endif()
 endif()

@@ -1,6 +1,7 @@
 This engine is an attempt to update the Tesseract Engine
 
 Todo: 
+- `find src/ -name '*.cpp' | xargs -I{} clang-tidy {} -p build -fix -checks='modernize-*,readability-*,-modernize-pass-by-value'`
 - Switch to SDL3: https://github.com/libsdl-org/SDL/blob/main/docs/README-migration.md
 - migrate cube script to luascript: 
     - https://github.com/jordanvrtanoski/luacpp
