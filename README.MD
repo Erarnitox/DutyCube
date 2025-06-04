@@ -1,11 +1,20 @@
 This engine is an attempt to update the Tesseract Engine
 
-Todo: 
-- `find src/ -name '*.cpp' | xargs -I{} clang-tidy {} -p build -fix -checks='modernize-*,readability-*,-modernize-pass-by-value'`
+Todo:
+- merge changes from the imprimis/libprimis projects (they have already done a lot)
+
+- `find src/ -name '*.cpp' | xargs -I{} clang-tidy {} -p build -fix
+ -checks='modernize-*,readability-*,-modernize-pass-by-value'`
+
+- manually modernize the code and architecture to make it more modular, testable and SOLID
+
 - Switch to SDL3: https://github.com/libsdl-org/SDL/blob/main/docs/README-migration.md
+
 - migrate cube script to luascript: 
     - https://github.com/jordanvrtanoski/luacpp
     - https://www.geeksforgeeks.org/integrating-lua-in-cpp/
+- use AI to translate old cube scripts
+
 - migrate renderer to Vulkan:
     - temporary solution: https://github.com/kbiElude/VKGL
     - https://www.youtube.com/watch?v=Y9U9IE0gVHA&list=PL8327DO66nu9qYVKLDmdLW_84-yE4auCR
